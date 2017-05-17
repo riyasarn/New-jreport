@@ -1,0 +1,16 @@
+program jreport;
+
+uses
+  Vcl.Forms,
+  LoginForm in 'LoginForm.pas' {frmLogin},
+  ConnectionSettingForm in 'ConnectionSettingForm.pas' {frmConnectionSetting};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmLogin, frmLogin);
+  Application.CreateForm(TfrmConnectionSetting, frmConnectionSetting);
+  Application.Run;
+end.

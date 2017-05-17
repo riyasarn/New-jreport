@@ -1,0 +1,23 @@
+object dmu: Tdmu
+  OldCreateOrder = False
+  Height = 361
+  Width = 632
+  object MyConnection1: TMyConnection
+    Left = 84
+    Top = 21
+  end
+  object MyQuery1: TMyQuery
+    Connection = MyConnection1
+    Left = 153
+    Top = 21
+  end
+  object MyDataSource1: TMyDataSource
+    DataSet = MyQuery1
+    Left = 273
+    Top = 24
+  end
+  object MySQLMonitor1: TMySQLMonitor
+    Left = 210
+    Top = 24
+  end
+end

@@ -1,0 +1,211 @@
+object frmHouse: TfrmHouse
+  Left = 0
+  Top = 0
+  Caption = 'frmHouse'
+  ClientHeight = 480
+  ClientWidth = 640
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = True
+  WindowState = wsMaximized
+  OnActivate = FormActivate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object dxRibbon1: TdxRibbon
+    Left = 0
+    Top = 0
+    Width = 640
+    Height = 159
+    ApplicationButton.Menu = dxBarApplicationMenu1
+    BarManager = dxBarManager1
+    ColorSchemeName = 'Blue'
+    QuickAccessToolbar.Toolbar = dxBarManager1Bar1
+    SupportNonClientDrawing = True
+    Contexts = <>
+    TabOrder = 0
+    TabStop = False
+    object DribonHouse: TdxRibbonTab
+      Active = True
+      Caption = #3592#3635#3609#3623#3609#3627#3621#3633#3591#3588#3634#3648#3619#3639#3629#3609#3649#3618#3585#3619#3634#3618#3627#3617#3641#3656#3610#3657#3634#3609
+      Groups = <
+        item
+          ToolbarName = 'dxBarManager1Bar2'
+        end>
+      Index = 0
+    end
+  end
+  object dxRibbonStatusBar1: TdxRibbonStatusBar
+    Left = 0
+    Top = 457
+    Width = 640
+    Height = 23
+    Panels = <
+      item
+        PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+        Width = 300
+      end
+      item
+        PanelStyleClassName = 'TdxStatusBarKeyboardStatePanelStyle'
+        PanelStyle.CapsLockKeyAppearance.ActiveFontColor = clDefault
+        PanelStyle.CapsLockKeyAppearance.ActiveCaption = 'CAPS'
+        PanelStyle.CapsLockKeyAppearance.InactiveCaption = 'CAPS'
+        PanelStyle.NumLockKeyAppearance.ActiveFontColor = clDefault
+        PanelStyle.NumLockKeyAppearance.ActiveCaption = 'NUM'
+        PanelStyle.NumLockKeyAppearance.InactiveCaption = 'NUM'
+        PanelStyle.ScrollLockKeyAppearance.ActiveFontColor = clDefault
+        PanelStyle.ScrollLockKeyAppearance.ActiveCaption = 'SCRL'
+        PanelStyle.ScrollLockKeyAppearance.InactiveCaption = 'SCRL'
+        PanelStyle.InsertKeyAppearance.ActiveFontColor = clDefault
+        PanelStyle.InsertKeyAppearance.ActiveCaption = 'OVR'
+        PanelStyle.InsertKeyAppearance.InactiveCaption = 'INS'
+      end
+      item
+        PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+      end>
+    Ribbon = dxRibbon1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clDefault
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+  end
+  object cxGrid1: TcxGrid
+    Left = 0
+    Top = 159
+    Width = 640
+    Height = 298
+    Align = alClient
+    TabOrder = 6
+    ExplicitLeft = 174
+    ExplicitTop = 246
+    ExplicitWidth = 250
+    ExplicitHeight = 200
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      Navigator.Buttons.CustomButtons = <>
+      DataController.DataSource = MyDataSource1
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      object cxGrid1DBTableView1villno: TcxGridDBColumn
+        DataBinding.FieldName = 'villno'
+      end
+      object cxGrid1DBTableView1villname: TcxGridDBColumn
+        DataBinding.FieldName = 'villname'
+        Width = 148
+      end
+      object cxGrid1DBTableView1total: TcxGridDBColumn
+        DataBinding.FieldName = 'total'
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxGrid1DBTableView1
+    end
+  end
+  object dxBarManager1: TdxBarManager
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    Categories.Strings = (
+      'Default')
+    Categories.ItemsVisibles = (
+      2)
+    Categories.Visibles = (
+      True)
+    PopupMenuLinks = <>
+    UseSystemFont = True
+    Left = 568
+    Top = 8
+    DockControlHeights = (
+      0
+      0
+      0
+      0)
+    object dxBarManager1Bar1: TdxBar
+      Caption = 'Quick Access Toolbar'
+      CaptionButtons = <>
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 0
+      FloatTop = 0
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <>
+      OneOnRow = True
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+    object dxBarManager1Bar2: TdxBar
+      Caption = 'Custom 1'
+      CaptionButtons = <>
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 674
+      FloatTop = 8
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton1'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton2'
+        end>
+      OneOnRow = True
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+    object dxBarLargeButton1: TdxBarLargeButton
+      Caption = 'New Button'
+      Category = 0
+      Hint = 'New Button'
+      Visible = ivAlways
+    end
+    object dxBarLargeButton2: TdxBarLargeButton
+      Caption = 'New Button'
+      Category = 0
+      Hint = 'New Button'
+      Visible = ivAlways
+    end
+  end
+  object dxBarApplicationMenu1: TdxBarApplicationMenu
+    BarManager = dxBarManager1
+    Buttons = <>
+    ExtraPane.Items = <>
+    ItemLinks = <>
+    UseOwnFont = False
+    Left = 536
+    Top = 8
+  end
+  object MyQuery1: TMyQuery
+    Connection = dmu.MyConnection1
+    SQL.Strings = (
+      'SELECT v.villno,v.villname,COUNT(*) as total'
+      'FROM house as h'
+      'INNER JOIN village as v on h.villcode=v.villcode'
+      ''
+      'WHERE substring(h.villcode,7,2)!=0'
+      ''
+      'GROUP BY v.villcode'
+      ';')
+    Active = True
+    Left = 426
+    Top = 12
+  end
+  object MyDataSource1: TMyDataSource
+    DataSet = MyQuery1
+    Left = 360
+    Top = 24
+  end
+end

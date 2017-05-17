@@ -1,0 +1,76 @@
+object frmLogin: TfrmLogin
+  Left = 0
+  Top = 0
+  Caption = 'Login '#3648#3586#3657#3634#3626#3641#3656#3619#3632#3610#3610
+  ClientHeight = 242
+  ClientWidth = 527
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 16
+  object Image1: TImage
+    Left = 24
+    Top = 27
+    Width = 145
+    Height = 160
+  end
+  object lblUsername: TLabel
+    Left = 189
+    Top = 46
+    Width = 63
+    Height = 16
+    Caption = 'User Name'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblPassword: TLabel
+    Left = 189
+    Top = 95
+    Width = 63
+    Height = 16
+    Caption = 'Password'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Edit1: TEdit
+    Left = 270
+    Top = 43
+    Width = 121
+    Height = 24
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+    Text = 'Edit1'
+  end
+  object Edit2: TEdit
+    Left = 270
+    Top = 90
+    Width = 121
+    Height = 24
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+    Text = 'Edit2'
+  end
+end

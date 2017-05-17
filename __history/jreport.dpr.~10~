@@ -1,0 +1,22 @@
+program jreport;
+
+uses
+  Vcl.Forms,
+  LoginForm in 'LoginForm.pas' {frmLogin},
+  datamodule in 'datamodule.pas' {dmu: TDataModule},
+  Mainfrom in 'Mainfrom.pas' {frmmain},
+  ConnectionSettingForm in 'ConnectionSettingForm.pas' {frmConSetting},
+  Popall0123Form in 'Popall0123Form.pas' {frmPopAll0123};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(Tfrmmain, frmmain);
+  Application.CreateForm(TfrmLogin, frmLogin);
+  Application.CreateForm(Tdmu, dmu);
+  Application.CreateForm(TfrmConSetting, frmConSetting);
+  Application.CreateForm(TfrmPopAll0123, frmPopAll0123);
+  Application.Run;
+end.

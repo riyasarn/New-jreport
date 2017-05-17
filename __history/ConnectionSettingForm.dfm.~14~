@@ -1,0 +1,177 @@
+object frmConSetting: TfrmConSetting
+  Left = 0
+  Top = 0
+  Caption = 'Connection Setting MySQL'
+  ClientHeight = 272
+  ClientWidth = 447
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object GroupBox1: TGroupBox
+    Left = 0
+    Top = 0
+    Width = 447
+    Height = 221
+    Align = alClient
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+    object edtServer: TcxTextEdit
+      Left = 165
+      Top = 42
+      TabOrder = 0
+      Width = 121
+    end
+    object cxLabel1: TcxLabel
+      Left = 78
+      Top = 39
+      Caption = 'Server'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -15
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = [fsBold]
+      Style.IsFontAssigned = True
+    end
+    object cxLabel5: TcxLabel
+      Left = 77
+      Top = 150
+      Caption = 'Database'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -15
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = [fsBold]
+      Style.IsFontAssigned = True
+    end
+    object edtdatabase: TcxTextEdit
+      Left = 165
+      Top = 150
+      TabOrder = 3
+      Width = 121
+    end
+  end
+  object edtpassword: TcxTextEdit
+    Left = 165
+    Top = 123
+    TabOrder = 1
+    Width = 121
+  end
+  object cxLabel4: TcxLabel
+    Left = 77
+    Top = 122
+    Caption = 'Password'
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -15
+    Style.Font.Name = 'Tahoma'
+    Style.Font.Style = [fsBold]
+    Style.IsFontAssigned = True
+  end
+  object edtport: TcxTextEdit
+    Left = 165
+    Top = 69
+    TabOrder = 3
+    Width = 121
+  end
+  object cxLabel3: TcxLabel
+    Left = 78
+    Top = 69
+    Caption = 'Port'
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -15
+    Style.Font.Name = 'Tahoma'
+    Style.Font.Style = [fsBold]
+    Style.IsFontAssigned = True
+  end
+  object edtuser: TcxTextEdit
+    Left = 165
+    Top = 96
+    TabOrder = 5
+    Width = 121
+  end
+  object cxLabel2: TcxLabel
+    Left = 78
+    Top = 96
+    Caption = 'User '
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -15
+    Style.Font.Name = 'Tahoma'
+    Style.Font.Style = [fsBold]
+    Style.IsFontAssigned = True
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 221
+    Width = 447
+    Height = 51
+    Align = alBottom
+    Color = clGradientActiveCaption
+    ParentBackground = False
+    TabOrder = 7
+    object btnTestConnect: TcxButton
+      Left = 18
+      Top = 12
+      Width = 121
+      Height = 31
+      Caption = #3607#3604#3626#3629#3610#3585#3634#3619#3648#3594#3639#3656#3629#3617#3605#3656#3629
+      TabOrder = 0
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = btnTestConnectClick
+    end
+    object btnSaveConnection: TcxButton
+      Left = 183
+      Top = 12
+      Width = 97
+      Height = 31
+      Caption = 'Save'
+      TabOrder = 1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = btnSaveConnectionClick
+    end
+    object btncancel: TcxButton
+      Left = 312
+      Top = 12
+      Width = 97
+      Height = 31
+      Caption = 'Cancel'
+      TabOrder = 2
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = btncancelClick
+    end
+  end
+end

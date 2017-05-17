@@ -1,0 +1,98 @@
+unit Popall0123Form;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, 
+  dxBar, dxRibbon, dxRibbonForm, dxRibbonSkins, cxGraphics, cxControls, 
+  cxLookAndFeels, cxLookAndFeelPainters, cxClasses, dxSkinsCore, dxSkinBlack,
+  dxSkinBlue, dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom,
+  dxSkinDarkSide, dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
+  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
+  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
+  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
+  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
+  dxSkinOffice2013White, dxSkinOffice2016Colorful, dxSkinOffice2016Dark,
+  dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus,
+  dxSkinSilver, dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008,
+  dxSkinTheAsphaltWorld, dxSkinsDefaultPainters, dxSkinValentine,
+  dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
+  dxSkinVisualStudio2013Light, dxSkinVS2010, dxSkinWhiteprint,
+  dxSkinXmas2008Blue, dxSkinsdxRibbonPainter, dxRibbonCustomizationForm,
+  dxSkinsdxBarPainter, cxStyles, dxSkinscxPCPainter, cxCustomData, cxFilter,
+  cxData, cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, cxGridLevel,
+  cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
+  cxGrid, dxStatusBar, dxRibbonStatusBar, dxBarApplicationMenu, dxBarExtItems,
+  cxCalendar, cxBarEditItem;
+
+type
+  TfrmPopAll0123 = class(TdxRibbonForm)
+    dxBarManager1: TdxBarManager;
+    dxBarManager1Bar1: TdxBar;
+    dxBarApplicationMenu1: TdxBarApplicationMenu;
+    dxRibbon1: TdxRibbon;
+    dxRibbon1Tab1: TdxRibbonTab;
+    dxRibbonStatusBar1: TdxRibbonStatusBar;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    Process: TdxBar;
+    dxBarLargeButton1: TdxBarLargeButton;
+    dxBarLargeButton2: TdxBarLargeButton;
+    cmbBeginDate: TdxBarDateCombo;
+    cnbEndDate: TdxBarDateCombo;
+    btnProcess: TdxBarLargeButton;
+    btnExcelExport: TdxBarLargeButton;
+    btnBackToMain: TdxBarLargeButton;
+    cxBarEditItem1: TcxBarEditItem;
+    cxBarEditItem2: TcxBarEditItem;
+    procedure FormActivate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPopAll0123: TfrmPopAll0123;
+
+implementation
+
+{$R *.dfm}
+
+uses datamodule, Mainfrom, LoginForm, ConnectionSettingForm;
+
+procedure TfrmPopAll0123.FormActivate(Sender: TObject);
+begin
+Caption:=frmmain.Caption+#13+' :: '+'จำนวนประชากรทั้งหมดแยกรายหมู่บ้าน';
+dxRibbonStatusBar1.Panels[0].Text:=frmmain.Mainstatus.Panels[0].Text;
+
+WITH dmu.MyQuery1 DO BEGIN
+Close;
+SQL.Clear;
+SQL.Add('SELECT v.villno,v.villname');
+SQL.Add(',COUNT(*) as Total');
+SQL.Add(',COUNT(CASE WHEN p.sex=1 THEN 1 END) as M');
+SQL.Add(',COUNT(CASE WHEN p.sex=2 THEN 1 END) as F');
+SQL.Add('');
+SQL.Add('FROM person as p');
+SQL.Add('');
+SQL.Add('INNER JOIN house as h on p.pcucodeperson=h.pcucode AND p.hcode=h.hcode');
+SQL.Add('INNER JOIN village as v on h.villcode=v.villcode');
+SQL.Add('');
+SQL.Add('WHERE p.typelive in (0,1,2,3)');
+SQL.Add('AND p.dischargetype=9');
+SQL.Add('AND p.nation=99');
+SQL.Add('');
+SQL.Add('');
+SQL.Add('GROUP BY v.villcode');
+SQL.Add('');
+Open;
+END;
+
+
+end;
+
+end.

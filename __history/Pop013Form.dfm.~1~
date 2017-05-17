@@ -1,0 +1,213 @@
+object frmPopAll013: TfrmPopAll013
+  Left = 0
+  Top = 0
+  Caption = 'frmPopAll013'
+  ClientHeight = 480
+  ClientWidth = 640
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = True
+  WindowState = wsMaximized
+  OnActivate = FormActivate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object dxRibbon1: TdxRibbon
+    Left = 0
+    Top = 0
+    Width = 640
+    Height = 159
+    ApplicationButton.Menu = dxBarApplicationMenu1
+    BarManager = dxBarManager1
+    ColorSchemeName = 'Blue'
+    QuickAccessToolbar.Toolbar = dxBarManager1Bar1
+    SupportNonClientDrawing = True
+    Contexts = <>
+    TabOrder = 0
+    TabStop = False
+    object dxRibbon1Tab1: TdxRibbonTab
+      Active = True
+      Caption = 'dxRibbon1Tab1'
+      Groups = <>
+      Index = 0
+    end
+  end
+  object dxRibbonStatusBar1: TdxRibbonStatusBar
+    Left = 0
+    Top = 457
+    Width = 640
+    Height = 23
+    Panels = <
+      item
+        PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+        Width = 300
+      end
+      item
+        PanelStyleClassName = 'TdxStatusBarKeyboardStatePanelStyle'
+        PanelStyle.CapsLockKeyAppearance.ActiveFontColor = clDefault
+        PanelStyle.CapsLockKeyAppearance.ActiveCaption = 'CAPS'
+        PanelStyle.CapsLockKeyAppearance.InactiveCaption = 'CAPS'
+        PanelStyle.NumLockKeyAppearance.ActiveFontColor = clDefault
+        PanelStyle.NumLockKeyAppearance.ActiveCaption = 'NUM'
+        PanelStyle.NumLockKeyAppearance.InactiveCaption = 'NUM'
+        PanelStyle.ScrollLockKeyAppearance.ActiveFontColor = clDefault
+        PanelStyle.ScrollLockKeyAppearance.ActiveCaption = 'SCRL'
+        PanelStyle.ScrollLockKeyAppearance.InactiveCaption = 'SCRL'
+        PanelStyle.InsertKeyAppearance.ActiveFontColor = clDefault
+        PanelStyle.InsertKeyAppearance.ActiveCaption = 'OVR'
+        PanelStyle.InsertKeyAppearance.InactiveCaption = 'INS'
+      end
+      item
+        PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+      end>
+    Ribbon = dxRibbon1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clDefault
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+  end
+  object cxGrid1: TcxGrid
+    Left = 0
+    Top = 159
+    Width = 640
+    Height = 298
+    Align = alClient
+    TabOrder = 6
+    ExplicitLeft = 228
+    ExplicitTop = 213
+    ExplicitWidth = 250
+    ExplicitHeight = 200
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      Navigator.Buttons.CustomButtons = <>
+      DataController.DataSource = MyDataSource1
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      OptionsView.Footer = True
+      OptionsView.GroupByBox = False
+      object cxGrid1DBTableView1villno: TcxGridDBColumn
+        Caption = #3627#3617#3641#3656#3607#3637#3656
+        DataBinding.FieldName = 'villno'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+      end
+      object cxGrid1DBTableView1villname: TcxGridDBColumn
+        Caption = #3627#3617#3641#3656#3610#3657#3634#3609
+        DataBinding.FieldName = 'villname'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 156
+      end
+      object cxGrid1DBTableView1Total: TcxGridDBColumn
+        Caption = #3619#3623#3617
+        DataBinding.FieldName = 'Total'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DecimalPlaces = 0
+        Properties.DisplayFormat = '#,###'
+        HeaderAlignmentHorz = taCenter
+      end
+      object cxGrid1DBTableView1M: TcxGridDBColumn
+        Caption = #3594#3634#3618
+        DataBinding.FieldName = 'M'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DecimalPlaces = 0
+        Properties.DisplayFormat = '#,###'
+        HeaderAlignmentHorz = taCenter
+      end
+      object cxGrid1DBTableView1F: TcxGridDBColumn
+        Caption = #3627#3597#3636#3591
+        DataBinding.FieldName = 'F'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DecimalPlaces = 0
+        Properties.DisplayFormat = '#,###'
+        HeaderAlignmentHorz = taCenter
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxGrid1DBTableView1
+    end
+  end
+  object dxBarManager1: TdxBarManager
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    Categories.Strings = (
+      'Default')
+    Categories.ItemsVisibles = (
+      2)
+    Categories.Visibles = (
+      True)
+    PopupMenuLinks = <>
+    UseSystemFont = True
+    Left = 568
+    Top = 8
+    DockControlHeights = (
+      0
+      0
+      0
+      0)
+    object dxBarManager1Bar1: TdxBar
+      Caption = 'Quick Access Toolbar'
+      CaptionButtons = <>
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 0
+      FloatTop = 0
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <>
+      OneOnRow = True
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+  end
+  object dxBarApplicationMenu1: TdxBarApplicationMenu
+    BarManager = dxBarManager1
+    Buttons = <>
+    ExtraPane.Items = <>
+    ItemLinks = <>
+    UseOwnFont = False
+    Left = 536
+    Top = 8
+  end
+  object MyQuery1: TMyQuery
+    Connection = dmu.MyConnection1
+    SQL.Strings = (
+      'SELECT v.villno,v.villname'
+      ',COUNT(*) as Total'
+      ',COUNT(CASE WHEN p.sex=1 THEN 1 END) as M'
+      ',COUNT(CASE WHEN p.sex=2 THEN 1 END) as F'
+      ''
+      'FROM person as p'
+      ''
+      
+        'INNER JOIN house as h on p.pcucodeperson=h.pcucode AND p.hcode=h' +
+        '.hcode'
+      'INNER JOIN village as v on h.villcode=v.villcode'
+      ''
+      'WHERE p.typelive in (0,1,3)'
+      'AND p.dischargetype=9'
+      'AND p.nation=99'
+      ''
+      ''
+      'GROUP BY v.villcode')
+    Active = True
+    Left = 438
+    Top = 24
+  end
+  object MyDataSource1: TMyDataSource
+    DataSet = MyQuery1
+    Left = 369
+    Top = 27
+  end
+end
