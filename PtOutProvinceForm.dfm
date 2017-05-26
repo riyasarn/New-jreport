@@ -1,9 +1,9 @@
-object frmPopAll0123: TfrmPopAll0123
+object frmPtOutProvince: TfrmPtOutProvince
   Left = 0
   Top = 0
-  Caption = #3592#3635#3609#3623#3609#3611#3619#3632#3594#3634#3585#3619#3607#3633#3657#3591#3627#3617#3604' '#3649#3618#3585#3619#3634#3618#3627#3617#3641#3656#3610#3657#3634#3609
-  ClientHeight = 480
-  ClientWidth = 811
+  Caption = 'frmPtOutProvince'
+  ClientHeight = 549
+  ClientWidth = 929
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,12 +14,13 @@ object frmPopAll0123: TfrmPopAll0123
   Position = poScreenCenter
   WindowState = wsMaximized
   OnActivate = FormActivate
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object dxRibbon1: TdxRibbon
     Left = 0
     Top = 0
-    Width = 811
+    Width = 929
     Height = 159
     ApplicationButton.Menu = dxBarApplicationMenu1
     BarManager = dxBarManager1
@@ -31,18 +32,22 @@ object frmPopAll0123: TfrmPopAll0123
     TabStop = False
     object dxRibbon1Tab1: TdxRibbonTab
       Active = True
-      Caption = #3592#3635#3609#3623#3609#3611#3619#3632#3594#3634#3585#3619#3607#3633#3657#3591#3627#3617#3604' (Type 0,1,2,3)'
+      Caption = #3619#3634#3618#3591#3634#3609#3612#3641#3657#3611#3656#3623#3618#3609#3629#3585#3648#3586#3605#3592#3633#3591#3627#3623#3633#3604
       Groups = <
         item
-          ToolbarName = 'Process'
+          Caption = 'System'
+          ToolbarName = 'dxBarManager1Bar2'
+        end
+        item
+          ToolbarName = 'dxBarManager1Bar3'
         end>
       Index = 0
     end
   end
   object dxRibbonStatusBar1: TdxRibbonStatusBar
     Left = 0
-    Top = 457
-    Width = 811
+    Top = 526
+    Width = 929
     Height = 23
     Panels = <
       item
@@ -70,116 +75,230 @@ object frmPopAll0123: TfrmPopAll0123
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
+    ExplicitTop = 457
     ExplicitWidth = 640
   end
   object cxGrid1: TcxGrid
     Left = 0
     Top = 159
-    Width = 811
-    Height = 298
+    Width = 929
+    Height = 367
     Align = alClient
-    BorderWidth = 1
-    TabOrder = 6
+    TabOrder = 3
     ExplicitTop = 135
-    ExplicitHeight = 322
+    ExplicitHeight = 391
     object cxGrid1DBTableView1: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       DataController.DataSource = MyDataSource1
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <
         item
-          Format = '#,### '#3588#3609
-          Kind = skSum
-          Column = cxGrid1DBTableView1F
-        end
-        item
-          Format = '#,### '#3588#3609
-          Kind = skSum
-          Column = cxGrid1DBTableView1M
-        end
-        item
-          Format = '#,### '#3588#3609
-          Kind = skSum
-          Column = cxGrid1DBTableView1Total
-        end
-        item
-          Format = #3619#3623#3617' # '#3627#3617#3641#3656#3610#3657#3634#3609
+          Format = #3592#3635#3609#3623#3609' #,### '#3588#3609
           Kind = skCount
-          Column = cxGrid1DBTableView1villname
+        end
+        item
+          Format = '#,###.00'
+          Kind = skSum
+        end
+        item
+          Format = '#,###.00'
+          Kind = skSum
+        end
+        item
+          Format = '#,###.00'
+          Kind = skSum
+        end
+        item
+          Format = '#,###.00'
+          Kind = skSum
+        end
+        item
+          Format = #3592#3635#3609#3623#3609' #,### '#3619#3634#3618
+          Kind = skCount
+          Column = cxGrid1DBTableView1n
+        end
+        item
+          Format = '#,###.00'
+          Kind = skSum
+          Column = cxGrid1DBTableView1money3
         end>
       DataController.Summary.SummaryGroups = <>
       OptionsView.Footer = True
       OptionsView.GroupByBox = False
-      object cxGrid1DBTableView1villno: TcxGridDBColumn
-        Caption = #3627#3617#3640#3656#3607#3637#3656
-        DataBinding.FieldName = 'villno'
+      object cxGrid1DBTableView1pcucodeperson: TcxGridDBColumn
+        Caption = #3626#3606#3634#3609#3610#3619#3636#3585#3634#3619
+        DataBinding.FieldName = 'pcucodeperson'
         PropertiesClassName = 'TcxTextEditProperties'
         Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid1DBTableView1HN: TcxGridDBColumn
+        DataBinding.FieldName = 'HN'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+      end
+      object cxGrid1DBTableView1n: TcxGridDBColumn
+        Caption = #3594#3639#3656#3629' - '#3626#3585#3640#3621
+        DataBinding.FieldName = 'n'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taLeftJustify
         FooterAlignmentHorz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 162
+      end
+      object cxGrid1DBTableView1age_year: TcxGridDBColumn
+        Caption = #3629#3634#3618#3640' ('#3611#3637')'
+        DataBinding.FieldName = 'age_year'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 54
+      end
+      object cxGrid1DBTableView1idcard: TcxGridDBColumn
+        Caption = #3648#3621#3586#3611#3619#3632#3592#3635#3605#3633#3623#3611#3619#3632#3594#3634#3594#3609
+        DataBinding.FieldName = 'idcard'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 107
+      end
+      object cxGrid1DBTableView1hno: TcxGridDBColumn
+        Caption = #3610#3657#3634#3609#3648#3621#3586#3607#3637#3656
+        DataBinding.FieldName = 'hno'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 63
+      end
+      object cxGrid1DBTableView1moo: TcxGridDBColumn
+        Caption = #3627#3617#3641#3656
+        DataBinding.FieldName = 'moo'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 29
+      end
+      object cxGrid1DBTableView1subdist: TcxGridDBColumn
+        Caption = #3605#3635#3610#3621
+        DataBinding.FieldName = 'subdist'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taLeftJustify
+        HeaderAlignmentHorz = taCenter
+        Width = 82
+      end
+      object cxGrid1DBTableView1dist: TcxGridDBColumn
+        Caption = #3629#3635#3648#3616#3629
+        DataBinding.FieldName = 'dist'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taLeftJustify
+        HeaderAlignmentHorz = taCenter
+        Width = 92
+      end
+      object cxGrid1DBTableView1prov: TcxGridDBColumn
+        Caption = #3592#3633#3591#3627#3623#3633#3604
+        DataBinding.FieldName = 'prov'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taLeftJustify
         HeaderAlignmentHorz = taCenter
         Width = 73
       end
-      object cxGrid1DBTableView1villname: TcxGridDBColumn
-        Caption = #3627#3617#3641#3656#3610#3657#3634#3609
-        DataBinding.FieldName = 'villname'
+      object cxGrid1DBTableView1visitno: TcxGridDBColumn
+        Caption = 'Visitno'
+        DataBinding.FieldName = 'visitno'
         PropertiesClassName = 'TcxTextEditProperties'
         Properties.Alignment.Horz = taCenter
-        FooterAlignmentHorz = taCenter
         HeaderAlignmentHorz = taCenter
-        Width = 138
       end
-      object cxGrid1DBTableView1Total: TcxGridDBColumn
-        Caption = #3619#3623#3617
-        DataBinding.FieldName = 'Total'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '#,###'
+      object cxGrid1DBTableView1service_date: TcxGridDBColumn
+        Caption = #3623#3633#3609#3619#3633#3610#3610#3619#3636#3585#3634#3619
+        DataBinding.FieldName = 'service_date'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
         HeaderAlignmentHorz = taCenter
-        Options.Editing = False
-        Options.Filtering = False
-        Options.FilteringWithFindPanel = False
-        Options.Focusing = False
-        Options.FilteringAddValueItems = False
-        Options.FilteringFilteredItemsList = False
-        Options.FilteringMRUItemsList = False
-        Options.FilteringPopup = False
-        Options.FilteringPopupMultiSelect = False
+        Width = 75
       end
-      object cxGrid1DBTableView1M: TcxGridDBColumn
-        Caption = #3648#3614#3624#3594#3634#3618
-        DataBinding.FieldName = 'M'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '#,###'
+      object cxGrid1DBTableView1timestart: TcxGridDBColumn
+        Caption = #3648#3623#3621#3634
+        DataBinding.FieldName = 'timestart'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
         HeaderAlignmentHorz = taCenter
-        Options.Editing = False
-        Options.Filtering = False
-        Options.FilteringWithFindPanel = False
-        Options.Focusing = False
-        Options.FilteringAddValueItems = False
-        Options.FilteringFilteredItemsList = False
-        Options.FilteringMRUItemsList = False
-        Options.FilteringPopup = False
-        Options.FilteringPopupMultiSelect = False
       end
-      object cxGrid1DBTableView1F: TcxGridDBColumn
-        Caption = #3648#3614#3624#3627#3597#3636#3591
-        DataBinding.FieldName = 'F'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '#,###'
+      object cxGrid1DBTableView1tservice: TcxGridDBColumn
+        Caption = #3651#3609'/'#3609#3629#3585' '#3648#3623#3621#3634
+        DataBinding.FieldName = 'tservice'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
         HeaderAlignmentHorz = taCenter
-        Options.Editing = False
-        Options.Filtering = False
-        Options.FilteringWithFindPanel = False
-        Options.Focusing = False
-        Options.FilteringAddValueItems = False
-        Options.FilteringFilteredItemsList = False
-        Options.FilteringMRUItemsList = False
-        Options.FilteringPopup = False
-        Options.FilteringPopupMultiSelect = False
+        Width = 67
+      end
+      object cxGrid1DBTableView1rightname: TcxGridDBColumn
+        Caption = #3626#3636#3607#3608#3636#3660#3619#3633#3585#3625#3634#3614#3618#3634#3610#3634#3621
+        DataBinding.FieldName = 'rightname'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taLeftJustify
+        HeaderAlignmentHorz = taCenter
+        Width = 290
+      end
+      object cxGrid1DBTableView1rightno: TcxGridDBColumn
+        Caption = #3648#3621#3586#3607#3637#3656
+        DataBinding.FieldName = 'rightno'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taLeftJustify
+        HeaderAlignmentHorz = taCenter
+      end
+      object cxGrid1DBTableView1hosmain: TcxGridDBColumn
+        Caption = #3626#3606#3634#3609#3610#3619#3636#3585#3634#3619#3627#3621#3633#3585
+        DataBinding.FieldName = 'hosmain'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 81
+      end
+      object cxGrid1DBTableView1hossub: TcxGridDBColumn
+        Caption = #3626#3606#3634#3609#3610#3619#3636#3585#3634#3619#3619#3629#3591
+        DataBinding.FieldName = 'hossub'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 77
+      end
+      object cxGrid1DBTableView1money3: TcxGridDBColumn
+        Caption = #3588#3656#3634#3651#3594#3657#3592#3656#3634#3618
+        DataBinding.FieldName = 'money3'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        FooterAlignmentHorz = taRightJustify
+        HeaderAlignmentHorz = taCenter
+        Width = 68
+      end
+      object cxGrid1DBTableView1diag: TcxGridDBColumn
+        Caption = #3623#3636#3609#3636#3592#3593#3633#3618
+        DataBinding.FieldName = 'diag'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taLeftJustify
+        HeaderAlignmentHorz = taCenter
+        Width = 162
+      end
+      object cxGrid1DBTableView1provider: TcxGridDBColumn
+        DataBinding.FieldName = 'provider'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taLeftJustify
+        HeaderAlignmentHorz = taCenter
+        Width = 77
       end
     end
     object cxGrid1Level1: TcxGridLevel
       GridView = cxGrid1DBTableView1
     end
+  end
+  object cxProgressBar1: TcxProgressBar
+    Left = 384
+    Top = 424
+    TabOrder = 7
+    Width = 121
   end
   object dxBarManager1: TdxBarManager
     Font.Charset = DEFAULT_CHARSET
@@ -218,7 +337,8 @@ object frmPopAll0123: TfrmPopAll0123
       Visible = True
       WholeRow = False
     end
-    object Process: TdxBar
+    object dxBarManager1Bar2: TdxBar
+      Caption = 'Custom 1'
       CaptionButtons = <>
       DockedLeft = 0
       DockedTop = 0
@@ -229,31 +349,51 @@ object frmPopAll0123: TfrmPopAll0123
       ItemLinks = <
         item
           Visible = True
-          ItemName = 'btnExcelExport'
+          ItemName = 'bd'
         end
         item
           Visible = True
-          ItemName = 'btnBackToMain'
+          ItemName = 'ed'
+        end
+        item
+          Visible = True
+          ItemName = 'btnProcess'
         end>
-      OneOnRow = True
+      OneOnRow = False
       Row = 0
       UseOwnFont = False
       Visible = True
       WholeRow = False
     end
-    object dxBarLargeButton1: TdxBarLargeButton
-      Caption = 'New Button'
-      Category = 0
-      Hint = 'New Button'
-      Visible = ivAlways
+    object dxBarManager1Bar3: TdxBar
+      Caption = 'Utility'
+      CaptionButtons = <>
+      DockedLeft = 228
+      DockedTop = 0
+      FloatLeft = 674
+      FloatTop = 8
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'btnExcel'
+        end
+        item
+          Visible = True
+          ItemName = 'btnReport'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton4'
+        end>
+      OneOnRow = False
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
     end
-    object dxBarLargeButton2: TdxBarLargeButton
-      Caption = 'New Button'
-      Category = 0
-      Hint = 'New Button'
-      Visible = ivAlways
-    end
-    object cmbBeginDate: TdxBarDateCombo
+    object bd: TdxBarDateCombo
       Caption = #3605#3633#3657#3591#3649#3605#3656#3623#3633#3609#3607#3637#3656
       Category = 0
       Hint = #3605#3633#3657#3591#3649#3605#3656#3623#3633#3609#3607#3637#3656
@@ -267,10 +407,8 @@ object frmPopAll0123: TfrmPopAll0123
         FF0D0F000FFF11FFFF0D0FFF0FFF11FFFF0D0FF10FFFF11FFF0D0FF10FFFFF11
         FF0D0FF10FF11111FF0D0FF10FFFFFFFFF0D0FF104444444440D0FFF04444444
         440D044400000000000D04444444440DDDDD00000000000DDDDD}
-      ShowCaption = True
-      ShowDayText = False
     end
-    object cnbEndDate: TdxBarDateCombo
+    object ed: TdxBarDateCombo
       Caption = #3606#3638#3591#3623#3633#3609#3607#3637#3656
       Category = 0
       Hint = #3606#3638#3591#3623#3633#3609#3607#3637#3656
@@ -284,14 +422,13 @@ object frmPopAll0123: TfrmPopAll0123
         FF0D0F000FFF11FFFF0D0FFF0FFF11FFFF0D0FF10FFFF11FFF0D0FF10FFFFF11
         FF0D0FF10FF11111FF0D0FF10FFFFFFFFF0D0FF104444444440D0FFF04444444
         440D044400000000000D04444444440DDDDD00000000000DDDDD}
-      ShowEditor = False
-      ShowDayText = False
     end
     object btnProcess: TdxBarLargeButton
       Caption = #3611#3619#3632' '#3617#3623#3621#3612#3621
       Category = 0
       Hint = #3611#3619#3632' '#3617#3623#3621#3612#3621
       Visible = ivAlways
+      OnClick = btnProcessClick
       HotGlyph.Data = {
         5A130000424D5A13000000000000360000002800000023000000230000000100
         2000000000002413000000000000000000000000000000000000000000000000
@@ -449,12 +586,12 @@ object frmPopAll0123: TfrmPopAll0123
         2B3A000000000001010100000000000000000101010202020204000000000000
         000000000000000000000000000000000000000000000000000000000000}
     end
-    object btnExcelExport: TdxBarLargeButton
+    object btnExcel: TdxBarLargeButton
       Caption = #3626#3656#3591#3629#3629#3585' Excel'
       Category = 0
       Hint = #3626#3656#3591#3629#3629#3585' Excel'
       Visible = ivAlways
-      OnClick = btnExcelExportClick
+      OnClick = btnExcelClick
       HotGlyph.Data = {
         5A130000424D5A13000000000000360000002800000023000000230000000100
         2000000000002413000000000000000000000000000000000000000000000000
@@ -612,12 +749,174 @@ object frmPopAll0123: TfrmPopAll0123
         0000000000000000000000000000000000000000000000000000000000000000
         000000000000000000000000000000000000000000000000000000000000}
     end
-    object btnBackToMain: TdxBarLargeButton
+    object btnReport: TdxBarLargeButton
+      Caption = #3614#3636#3617#3614#3660' '#3619#3634#3618#3591#3634#3609
+      Category = 0
+      Hint = #3614#3636#3617#3614#3660' '#3619#3634#3618#3591#3634#3609
+      Visible = ivAlways
+      HotGlyph.Data = {
+        5A130000424D5A13000000000000360000002800000023000000230000000100
+        2000000000002413000000000000000000000000000000000000000000000000
+        00000000000000000000000000000000000100000004000000152222227C3535
+        3593323232903333339234343494343434953434349433333391333333903434
+        34933434349234343492333333913333339033333390333333913232328E3737
+        37951A1A1A6E0000000C00000008000000040000000100000000000000000000
+        0000000000000000000000000000000000000000000000000000000000090000
+        001500000022767676C0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFF4D4D4DA60000001A000000170000000D0000
+        0003000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000F0000001B000000153737378BFDFDFDFEF6F6F6FBFBFB
+        FBFDFCFCFDFEFCFDFCFEFDFCFDFEFCFCFDFEFCFDFDFEFDFCFDFEFCFDFDFEFCFC
+        FDFEFCFCFDFEFCFCFDFEFCFBFDFEFBFBFBFDF8F8F8FBFDFDFDFE1F1F1F710000
+        00180000001D0000001300000000000000000000000000000000000000000000
+        00000000000000000000010101020101010103030315151414AE1D1D1DB84645
+        46D0FBFBFBFEFBFBFBFDFBFBFBFDFDFDFDFEFDFDFDFEFDFDFDFEFDFDFDFEFDFD
+        FDFEFDFDFDFEFDFDFDFEFDFDFDFEFDFDFDFEFDFDFDFEFCFDFDFEFCFCFCFEFDFD
+        FDFEF0F0F0FE313131C81E1E1EB9161616B20303032101010101010101020000
+        0001000000000000000000000000000000000000000000000000000000000000
+        00002D2B2BAF6C696AFF626061FFE8E8E8FEFFFFFFFFFBFBFBFEFDFDFDFFFDFD
+        FDFFFDFDFDFFFDFDFDFFFDFDFDFFFDFDFDFFFDFDFDFFFDFDFDFFFDFDFDFFFDFD
+        FDFFFCFDFDFFF9FAFAFEFEFEFEFFD5D5D5FE5B5859FF6E6B6CFF313030C10101
+        0102000000000000000000000000000000000000000000000000000000000101
+        01060A0A0A2108080828050505270908096B4B4849F9423F3FFCC2C2C2FDFEFE
+        FEFFF2F2F2FFF5F4F5FFF4F4F5FFF5F5F5FFF5F5F5FFF5F4F5FFF5F5F5FFF5F5
+        F5FFF5F4F5FFF4F5F4FFF5F5F5FFF5F5F4FFF1F1F2FFFDFDFDFEAFADADFD3E3A
+        3AFB504D4EFC0A0A0A780303031A050505230505052202020211000000000000
+        000001010101000000032121219D616061F05B5B5BEE5F5E5EF2646464F15A56
+        57FC2F2A2CFF989798FEF5F5F5FEE3E3E3FEE8E8E8FFE8E8E8FFE8E8E8FFE8E8
+        E8FFE8E8E8FFE8E8E8FFE8E8E8FFE8E8E8FFE8E8E8FFE8E8E8FFE8E8E9FFE3E3
+        E3FEF5F5F6FF858384FE332E2EFF524F50FE656565EC5C5C5CE85B5B5BE96363
+        62ED424141CE0000002200000000000000000B0B0B2B888787FE939292FF9593
+        94FF9A9798FFA5A3A3FF635E5FFF201A1CFE727171FFE5E5E5FFD5D5D5FFD9D8
+        D9FFD8D8D8FFD9D8D8FFD9D9D8FFD9D8D9FFD9D9D9FFD8D8D8FFD9D9D8FFD9D8
+        D8FFD8D8D8FFD9D8D8FFD6D6D6FFE1E1E2FF5E5C5CFF282222FE464242FFA19E
+        9EFF9B9898FF979494FF8E8C8CFD969493FF2222226700000000000000002625
+        255B91908FFE919090F9AEAAABFDB1ACADFEBAB6B7FE514E4FFE211B1BFF4947
+        47FFD6D6D6FFD0D0D0FFD1D1D1FFD1D1D1FFD1D1D1FFD1D1D1FFD1D1D1FFD1D1
+        D1FFD1D1D1FFD1D1D1FFD1D1D1FFD2D1D1FFD1D0D1FFD2D2D2FFCFCFCFFF3F3C
+        3CFF2B2425FF373233FEABA7A7FEB4B0B0FDAFABABFC949291F8939292FD4B4B
+        4B9C00000000000000004141418A949293FE9D9B9BF9BAB7B8FEB9B5B6FFBBB8
+        B8FF444142FF2A2628FF333232FF929191FF969596FF969595FF979595FF9796
+        95FF979696FF989697FF989797FF989797FF979697FF969696FF969696FF9695
+        95FF989797FF8B8A8AFF322F30FF302C2DFF2D2A2AFFA4A1A2FFBEBBBBFFBAB6
+        B7FEA4A1A2FB969494FE666465C90000000000000000595959B4989797FFAAA8
+        A8FAC4C2C2FDC6C3C4FFB9B7B7FF575355FF565154FF595558FF565154FF5954
+        57FF5C575AFF5F5A5DFF615C5FFF635E61FF645F62FF656063FF655F62FF635E
+        61FF615C5FFF5E5A5DFF5C585AFF595557FF565154FF585457FF585356FF4D48
+        4AFFA09E9EFFCBC8C9FFC4C1C2FEB2B0B1FC989797FF808080EA020202050101
+        01056F6E6FD4999999FFB7B6B5FBCDCCCCFED3D2D2FFB1B0B1FF575456FF605C
+        5FFF615D60FF666264FF686566FF6B6769FF6D6A6CFF706B6EFF716D70FF726E
+        71FF736F71FF726E70FF716D6FFF6F6C6DFF6D696CFF6B676AFF696567FF6662
+        64FF615E60FF615D60FF545053FF949293FFD6D5D5FFCDCBCCFFC0BFBFFD9898
+        98FE919191FC0E0E0F2A131313229F9E9FE4AEAEAEFFCAC9C9FCD6D6D7FFDFDF
+        DFFFA4A5A3FF686566FF767274FF757273FF777374FF787575FF7A7778FF7B79
+        79FF7D797AFF7E7B7BFF7D797AFF7D7A7BFF7D7A7BFF7D797BFF7D797AFF7B78
+        79FF7A7677FF787475FF777374FF757173FF757272FF6C6A6BFF898988FFDDDD
+        DDFFD5D4D5FED1D0D1FEA3A3A3FDB3B3B3FF2E2F2F551414143AC1C1C1EEDCDC
+        DCFFD0CFCFFDD2D0D2FFDADEDCFF8A677DFF803668FF874170FF87416FFF8742
+        70FF874371FF884471FF884371FF874170FF874170FF8F4977FF8C4675FF8C46
+        75FF873F70FF833A6BFF83396BFF83376AFF823669FF823569FF823569FF8238
+        6AFF873F6FFF815070FFCDCECEFFD6D5D6FFCFCFCFFDCDCDCEFDE4E4E4FE2E2E
+        2E731313133BB0B0B0EEDEDDDEFFDFDFDFFDE7E8E7FEC2C3C2FFCCA1C3FFE3B0
+        D9FFDFAED5FFDFAED6FFE0AFD6FFDFAED6FFDFAED5FFDFAED5FFDEACD4FFE1B0
+        D7FF82727FFF988C96FF998D96FFC29CBBFFE3AED8FFDCA9D2FFDEAAD3FFDDAA
+        D3FFDDAAD3FFDDA9D3FFDDA9D3FFDFACD5FFD7A4CDFFBAB3B8FFE4E8E5FFE0DF
+        E0FDDFDFDFFCD7D7D7FE292929740E0E0E1C929292E1E8E8E7FFFCFCFCFCDEDA
+        DCFEC299B2FFE5B8D3FFDEB4CCFFDFB3CCFFDEB2CBFFDEB1CBFFDEB0CAFFDDAF
+        CAFFDCAEC9FFDDAEC9FFDDAFCAFFC49BB3FFC9A0B8FFCAA0B9FFD5A7C3FFDDAE
+        CAFFDBABC7FFDBAAC7FFDAA9C6FFDBAAC6FFDBAAC7FFDAAAC7FFDAA9C5FFE0AE
+        CBFFC994B4FFCBBDC6FEFEFEFEFEEEEDEEFEB6B6B6FF2526264E000000006F6F
+        6FC7E6E4E4FEE5E9E6FBA67594FEC267A2FFC16CA2FFC068A0FFBF649EFFBD60
+        9CFFBD5E9AFFBC5D9AFFBC5D9BFFBC5E9BFFBD609CFFBD619CFFC366A2FFC264
+        A0FFC1629FFFBE5D9BFFBA5897FFB85494FFB75092FFB54B8FFFB4488DFFB447
+        8DFFB3478DFFB3478DFFB2478CFFB94891FF9C467CFFD6D6D5FDEEEEEEFF9F9F
+        9FF608090918000000004E4E4F9AD4D4D4FEC6C5C6F9A15D8AFEBB6B9DFEB769
+        9AFFB76799FFB56397FFB35F94FFB46096FFB56398FFB6669AFFB8699BFFB96C
+        9CFFB96D9DFFB96D9DFFB86C9DFFB76A9BFFB76799FFB46196FFB15A91FFAE53
+        8DFFAA4A88FFA74282FFA43B7DFFA23A7CFFA33A7CFFA3397CFFA63C7FFF932B
+        6DFEB4A4ADFBDDE0DEFE7A7979D7000000000000000024242557B7B7B7FFB4B2
+        B3FA975A81FEAB6491FEA8638EFEA9628EFEA85F8CFEA85F8CFEAE6C94FEB172
+        9AFFB4779DFFB57B9FFFB77EA2FFB981A4FFB981A4FFB982A4FFB77FA3FFB67B
+        9FFFB3759BFFAE6D95FFA9638FFFA45787FF9E4C7FFF943A73FE91336FFE9133
+        6FFE90336FFE933570FE852662FEA3919BF9C3C5C2FE4848489A000000000101
+        010108080810858585E8AFAEAEFF804F6DF994507AFC93567DFC96597FFE9759
+        7FFF9A5E82FFAA7796FFAE7F9CFEB68AA5FFBC93ACFFBF97B0FFC19AB2FFC19B
+        B2FFC19BB2FFC09AB2FFC098B1FFBD93ADFFB88CA7FFAD7D9AFFA26E8EFE9C63
+        86FE8B4470FF853867FF853969FE833766FC873869FC722D56FB9E999BFB9EA0
+        9DFF1D1A1F3E0000000002020205000000002121214F8C8C8BF3887B84FF7C48
+        68FF8A5676FF885473FD8B5877FC956681FEAA869BFEB494A7FFB094A5FFAA94
+        A1FFAD98A4FFAF9DA9FFB6A5B0FFB9A8B3FFB3A2ADFFAC9AA5FFA794A0FFA28C
+        99FFB194A6FFB290A4FFA78399FE92637FFE865172FC875273FE8A5777FF7E4A
+        6BFF7A6471FF9C9B9AFF37393A88000000000202020400000000010101010000
+        00000E0E0E212A282845262324412A222553BFB8BDFE776B71FF57494FFDA099
+        9DFE9B9498FE8C8789FF838282FF989898FFBBBBBBFFDADADAFFE1E2E1FFC8C8
+        C8FFA3A4A4FF878687FF716F6FFF938D90FF9A9397FEA19B9EFE6D6167FD7D70
+        76FFC4BDC3FE2F242753241F20412A2827451514143000000000000000000000
+        0000000000000000000001010102000000000000000000000000000000001E1C
+        1B412A29297B514E4EFEBBBCBCFDB6B6B5FEBBBABAFFBCBBBBFFBBBABAFFBBB9
+        BAFFBCBABBFFBCBBBBFFBBB9BAFFBAB9B9FFBAB9B9FFBDBCBCFFB7B7B7FFB1B0
+        B0FEBFBFBEFC706D6DFE2726268F1E1E1E410000000000000000000000000000
+        0000010101020000000000000000000000000000000000000000010101010101
+        01020101010202020204000000000E0D0D2C605B5DFFD6D5D5FDD5D5D5FDD6D6
+        D6FFD6D6D6FFD7D6D6FFD7D6D7FFD6D6D6FFD5D6D6FFD6D6D6FFD6D6D6FFD7D6
+        D6FFD5D5D5FFD7D6D6FFD3D1D2FDDCDDDDFA817C7EFF0E0D0D4C000000000202
+        0204010101020101010201010102000000000000000000000000000000000000
+        00000000000000000000000000000000000001010102010101021414143C6661
+        63FEE2E2E2FEE3E3E3FEE3E3E4FFE4E4E4FFE4E4E4FFE5E4E4FFE4E4E4FFE4E4
+        E4FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E3FFE4E4E4FFE0E0E0FEE9EAEAFB8885
+        86FE1110115B0101010201010102000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000101
+        010200000000131313396C676AFDE4E5E4FDE7E7E7FDE7E7E7FEE9E9E9FFE9E8
+        E9FFE9E9E9FFE9E8E9FFE9E9E8FFE9E9E9FFE9E8E9FFE9E8E8FFE9E9E9FFE8E8
+        E8FEE5E4E4FDEDEDEEFB8E8B8DFD111010590000000001010101000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000001000000001515153C726C70FFE9EAEAFEEDED
+        EDFEEDEDEDFFEDEEEEFFEEEEEDFFEDEDEEFFEDEEEEFFEEEDEDFFEDEEEDFFEDEE
+        EDFFEDEEEDFFEDEEEDFFEDEEEEFFEAEAEAFEF1F1F1FA959193FF1413145F0000
+        0000010101020000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000808
+        0815605C5EC6EFEEEEFEF0F0F0FDF0F0F0FEF2F2F2FFF2F2F1FFF2F2F2FFF2F2
+        F1FFF2F2F2FFF1F2F1FFF1F2F1FFF1F2F2FFF1F2F1FFF0F1F0FEEDEDEDFDF9FA
+        FAFD807E7FDC0F0F0F2800000000000000010000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000010101010000000018181826EFEFEFFAF4F4F4FEF3F2F3FDF5F5
+        F6FFF5F5F5FFF5F6F5FFF5F5F6FFF5F5F6FFF5F5F6FFF5F6F6FFF5F6F6FFF5F5
+        F5FFF3F4F4FDEEEEEFFAFCFDFDFF464545630000000002020203000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        00000000000000000000000000000000000000000000000000001C1C1C2BF0F0
+        F1F9F8F8F8FFF5F5F6FDF7F7F8FEF7F7F7FEF7F7F8FEF7F7F8FEF7F7F8FEF7F7
+        F8FEF7F7F7FEF7F7F8FEF7F7F7FEF6F6F6FDF1F1F2FAFDFDFDFE4C4C4C650101
+        0101020202030000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000001C1C1C2BF4F4F4F8FBFBFBFDF9F9F9FCFBFAFBFDFBFAFAFDFBFB
+        FBFDFBFAFAFDFBFBFBFDFAFAFBFDFBFAFAFDFBFBFBFDFAFBFAFDFAFAF9FCF5F5
+        F5F9FCFCFCFC4C4C4C6500000000010101020000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000001000000001D1D1D2CF3F3F3FFF4F4F4FFF3F3
+        F3FFF4F4F4FFF4F4F4FFF4F4F4FFF4F4F4FFF4F4F4FFF4F4F4FFF4F4F4FFF4F4
+        F4FFF4F4F4FFF3F3F3FFF2F2F2FFF6F6F6FF5050506900000000010101030000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000505
+        050A2222223B2222223C2121213B2222223C2222223C2222223C2222223C2222
+        223C2222223C2222223C2222223C2222223C2222223B2121213A2323233E0E0E
+        0E18000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000001010101020202050202
+        0205020202050202020502020205020202050202020502020205020202050202
+        0205020202050202020502020205020202050303030601010102000000000000
+        000000000000000000000000000000000000000000000000000000000000}
+    end
+    object dxBarLargeButton4: TdxBarLargeButton
       Caption = #3585#3621#3633#3610' '#3627#3609#3657#3634#3627#3621#3633#3585
       Category = 0
       Hint = #3585#3621#3633#3610' '#3627#3609#3657#3634#3627#3621#3633#3585
       Visible = ivAlways
-      OnClick = btnBackToMainClick
+      OnClick = dxBarLargeButton4Click
       HotGlyph.Data = {
         5A130000424D5A13000000000000360000002800000023000000230000000100
         2000000000002413000000000000000000000000000000000000000000000000
@@ -775,20 +1074,11 @@ object frmPopAll0123: TfrmPopAll0123
         0000000000000000000000000000000000000000000000000000000000000000
         000000000000000000000000000000000000000000000000000000000000}
     end
-    object cxBarEditItem1: TcxBarEditItem
-      Caption = 'New Item'
+    object dxBarLargeButton5: TdxBarLargeButton
+      Caption = 'New Button'
       Category = 0
-      Hint = 'New Item'
+      Hint = 'New Button'
       Visible = ivAlways
-      PropertiesClassName = 'TcxDateEditProperties'
-      Properties.DateButtons = [btnToday]
-    end
-    object cxBarEditItem2: TcxBarEditItem
-      Caption = 'New Item'
-      Category = 0
-      Hint = 'New Item'
-      Visible = ivAlways
-      PropertiesClassName = 'TcxDateEditProperties'
     end
   end
   object dxBarApplicationMenu1: TdxBarApplicationMenu
@@ -803,31 +1093,83 @@ object frmPopAll0123: TfrmPopAll0123
   object MyQuery1: TMyQuery
     Connection = dmu.MyConnection1
     SQL.Strings = (
-      'SELECT v.villno,v.villname'
-      ',COUNT(*) as Total'
-      ',COUNT(CASE WHEN p.sex=1 THEN 1 END) as M'
-      ',COUNT(CASE WHEN p.sex=2 THEN 1 END) as F'
+      '#SET @bd:=20161001,@ed:=20170930;'
+      'SET @bd:= :bd,@ed:= :ed;'
       ''
-      'FROM person as p'
-      ''
+      'SELECT v.`pcucodeperson`'
+      ',v.`pid` AS HN'
+      ',CONCAT(ct.`titlename`,p.`fname`,"   ",p.`lname`) AS n'
+      ',TIMESTAMPDIFF(YEAR,p.`birth`,v.`visitdate`) AS age_year'
+      ',p.`idcard` AS idcard'
+      ',p.`hnomoi` AS hno'
+      ',p.`mumoi` AS moo'
+      ',CONCAT(p.`subdistcodemoi`,'#39' : '#39',cs.`subdistname`) AS subdist'
+      ',CONCAT(p.`distcodemoi`,'#39' : '#39',cd.`distname`) AS dist'
+      ',CONCAT(p.`provcodemoi`,'#39' : '#39',cp.`provname`) AS prov'
+      ',v.`visitno`'
       
-        'INNER JOIN house as h on p.pcucodeperson=h.pcucode AND p.hcode=h' +
-        '.hcode'
-      'INNER JOIN village as v on h.villcode=v.villcode'
+        ',CONCAT(DATE_FORMAT(v.`visitdate`,"%d-%m"),'#39'-'#39',DATE_FORMAT(v.`vi' +
+        'sitdate`,"%Y")+543) service_date'
+      ',CASE '
+      #9'WHEN v.`timeservice`=1 THEN "'#3651#3609#3648#3623#3621#3634'"'
+      #9'WHEN v.`timeservice`=2 THEN "'#3609#3629#3585#3648#3623#3621#3634'"'
+      'END AS tservice'
+      ',v.`timestart`'
+      ',cr.`rightname`'
+      ',p.rightno'
+      ',v.`hosmain`,v.`hossub`'
+      ',v.`money1`  '
+      ',v.`money2`  '
+      ',v.`money3`  '#9
+      ',v.`moneynoclaim`  #'#3592#3635#3609#3623#3609#3648#3591#3636#3609#3607#3637#3656#3652#3617#3656#3626#3634#3617#3619#3606#3648#3610#3636#3585#3652#3604#3657
+      ',GROUP_CONCAT(vd.`diagcode`) diag'
+      ',u.fullname AS provider'
       ''
-      'WHERE p.typelive in (0,1,2,3)'
-      'AND p.dischargetype=9'
-      'AND p.nation=99'
+      'FROM visit v'
+      
+        'LEFT OUTER JOIN visitdiag AS vd ON v.pcucodeperson=vd.pcucode AN' +
+        'D v.visitno=vd.visitno'
+      
+        'LEFT OUTER JOIN `person` AS p ON v.`pcucodeperson`=p.`pcucodeper' +
+        'son` AND v.`pid`=p.`pid`'
+      'INNER JOIN `cright` AS cr ON v.`rightcode`=cr.`rightcode`'
+      'INNER JOIN ctitle AS ct ON p.`prename`=ct.`titlecode`'
+      
+        'LEFT OUTER JOIN `cprovince` AS cp ON p.`provcodemoi`=cp.`provcod' +
+        'e`'
+      
+        'LEFT OUTER JOIN `cdistrict` AS cd ON p.`provcodemoi`=cd.`provcod' +
+        'e` AND p.`distcodemoi`=cd.`distcode`'
+      
+        'LEFT OUTER JOIN `csubdistrict` AS cs ON p.`provcodemoi`=cs.`prov' +
+        'code` AND p.`distcodemoi`=cs.`distcode` AND p.`subdistcodemoi`=c' +
+        's.`subdistcode`'
+      'LEFT OUTER JOIN USER AS u ON v.username=u.username'
       ''
+      'WHERE v.visitdate BETWEEN @bd AND @ed'
+      'AND p.`typelive`=4'
+      
+        'AND p.`provcodemoi`  NOT IN (SELECT `provcode` FROM `chospital` ' +
+        'WHERE v.`pcucode`=`chospital`.`hoscode` )'
       ''
-      'GROUP BY v.villcode')
-    Active = True
-    Left = 438
-    Top = 24
+      'GROUP BY v.`visitno`#,v.`pcucodeperson`,v.`pid`,v.`visitdate`')
+    Left = 448
+    Top = 8
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'bd'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'ed'
+        Value = nil
+      end>
   end
   object MyDataSource1: TMyDataSource
     DataSet = MyQuery1
-    Left = 369
-    Top = 27
+    Left = 376
+    Top = 8
   end
 end

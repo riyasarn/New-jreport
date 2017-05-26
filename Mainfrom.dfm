@@ -1,8 +1,9 @@
 object frmmain: Tfrmmain
   Left = 0
   Top = 0
+  Caption = 'JHCIS Report'
   ClientHeight = 528
-  ClientWidth = 850
+  ClientWidth = 975
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,7 +20,7 @@ object frmmain: Tfrmmain
   object dxRibbon1: TdxRibbon
     Left = 0
     Top = 0
-    Width = 850
+    Width = 975
     Height = 159
     ApplicationButton.Menu = dxBarApplicationMenu1
     BarManager = dxBarManager1
@@ -29,7 +30,7 @@ object frmmain: Tfrmmain
     Contexts = <>
     TabOrder = 0
     TabStop = False
-    object ribGeneral: TdxRibbonTab
+    object tabGeneral: TdxRibbonTab
       Active = True
       Caption = #3586#3657#3629#3617#3641#3621#3607#3633#3656#3623#3652#3611
       Groups = <
@@ -41,18 +42,40 @@ object frmmain: Tfrmmain
         end>
       Index = 0
     end
+    object tabEPI: TdxRibbonTab
+      Caption = #3626#3619#3657#3634#3591#3648#3626#3619#3636#3617#3616#3641#3617#3636#3588#3640#3657#3617#3585#3633#3609
+      Groups = <
+        item
+          ToolbarName = 'barList'
+        end
+        item
+          ToolbarName = 'barCoverage'
+        end>
+      Index = 1
+    end
+    object tabInsur: TdxRibbonTab
+      Caption = #3591#3634#3609#3611#3619#3632#3585#3633#3609#3626#3640#3586#3616#3634#3614
+      Groups = <
+        item
+          ToolbarName = 'dxBarManager1Bar2'
+        end>
+      Index = 2
+    end
+    object tabSchoolHealth: TdxRibbonTab
+      Caption = #3629#3609#3634#3617#3633#3618#3650#3619#3591#3648#3619#3637#3618#3609
+      Groups = <
+        item
+          ToolbarName = 'dxBarManager1Bar3'
+        end>
+      Index = 3
+    end
   end
   object Mainstatus: TdxRibbonStatusBar
     Left = 0
     Top = 505
-    Width = 850
+    Width = 975
     Height = 23
     Panels = <
-      item
-        PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
-        Text = 'Report For JHCIS'
-        Width = 300
-      end
       item
         PanelStyleClassName = 'TdxStatusBarKeyboardStatePanelStyle'
         PanelStyle.CapsLockKeyAppearance.ActiveFontColor = clDefault
@@ -67,6 +90,8 @@ object frmmain: Tfrmmain
         PanelStyle.InsertKeyAppearance.ActiveFontColor = clDefault
         PanelStyle.InsertKeyAppearance.ActiveCaption = 'OVR'
         PanelStyle.InsertKeyAppearance.InactiveCaption = 'INS'
+        Text = 'Report For JHCIS'
+        Width = 127
       end
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
@@ -77,6 +102,7 @@ object frmmain: Tfrmmain
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
+    ExplicitWidth = 850
   end
   object dxBarManager1: TdxBarManager
     Font.Charset = DEFAULT_CHARSET
@@ -133,14 +159,14 @@ object frmmain: Tfrmmain
           Visible = True
           ItemName = 'btnPop013'
         end>
-      OneOnRow = True
-      Row = 1
+      OneOnRow = False
+      Row = 0
       UseOwnFont = False
       Visible = True
       WholeRow = False
     end
     object HouseByVillage: TdxBar
-      Caption = #3588#3619#3633#3623#3648#3619#3639#3629#3609
+      Caption = #3588#3619#3633#3623#3648#3619#3639#3629#3609' / '#3626#3640#3586#3634#3616#3636#3610#3634#3621' / '#3626#3606#3634#3609#3611#3619#3632#3585#3629#3610#3585#3634#3619'/'#3650#3619#3591#3648#3619#3637#3618#3609' /'#3623#3633#3604
       CaptionButtons = <>
       DockedLeft = 182
       DockedTop = 0
@@ -152,6 +178,110 @@ object frmmain: Tfrmmain
         item
           Visible = True
           ItemName = 'btnHouseByVillage'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton1'
+        end
+        item
+          Visible = True
+          ItemName = 'btnSchool'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton3'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton4'
+        end>
+      OneOnRow = False
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+    object barList: TdxBar
+      Caption = #3607#3632#3648#3610#3637#3618#3609
+      CaptionButtons = <>
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 884
+      FloatTop = 8
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'btnEpi05list'
+        end>
+      OneOnRow = False
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+    object barCoverage: TdxBar
+      Caption = #3619#3634#3618#3591#3634#3609#3588#3623#3634#3617#3588#3619#3629#3610#3588#3621#3640#3617
+      CaptionButtons = <>
+      DockedLeft = 85
+      DockedTop = 0
+      FloatLeft = 884
+      FloatTop = 8
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'btn1YearCoverage'
+        end
+        item
+          Visible = True
+          ItemName = 'btn2YearCoverage'
+        end
+        item
+          Visible = True
+          ItemName = 'btn3YearCoverage'
+        end>
+      OneOnRow = False
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+    object dxBarManager1Bar2: TdxBar
+      Caption = 'Custom 1'
+      CaptionButtons = <>
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 884
+      FloatTop = 8
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'btnPtOutProvince'
+        end>
+      OneOnRow = True
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+    object dxBarManager1Bar3: TdxBar
+      Caption = 'Custom 2'
+      CaptionButtons = <>
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 884
+      FloatTop = 8
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton2'
         end>
       OneOnRow = True
       Row = 0
@@ -180,6 +310,81 @@ object frmmain: Tfrmmain
       Visible = ivAlways
       OnClick = btnHouseByVillageClick
     end
+    object btnEpi05list: TdxBarLargeButton
+      Caption = #3607#3632#3648#3610#3637#3618#3609#3623#3633#3588#3595#3637#3609' '#3648#3604#3655#3585' 0-5 '#3611#3637
+      Category = 0
+      Hint = #3607#3632#3648#3610#3637#3618#3609#3623#3633#3588#3595#3637#3609' '#3648#3604#3655#3585' 0-5 '#3611#3637
+      Visible = ivAlways
+      OnClick = btnEpi05listClick
+    end
+    object btn1YearCoverage: TdxBarLargeButton
+      Caption = #3588#3623#3634#3617#3588#3619#3629#3610#3610#3588#3621#3640#3617' 1 '#3611#3637#3610#3619#3636#3610#3641#3619#3603#3660
+      Category = 0
+      Hint = #3588#3623#3634#3617#3588#3619#3629#3610#3610#3588#3621#3640#3617' 1 '#3611#3637#3610#3619#3636#3610#3641#3619#3603#3660
+      Visible = ivAlways
+      OnClick = btn1YearCoverageClick
+    end
+    object btnPtOutProvince: TdxBarLargeButton
+      Caption = #3612#3641#3657#3611#3656#3623#3618#3609#3629#3585' '#3648#3586#3605#3592#3633#3591#3627#3623#3633#3604
+      Category = 0
+      Hint = #3612#3641#3657#3611#3656#3623#3618#3609#3629#3585' '#3648#3586#3605#3592#3633#3591#3627#3623#3633#3604
+      Visible = ivAlways
+      OnClick = btnPtOutProvinceClick
+    end
+    object btn2YearCoverage: TdxBarLargeButton
+      Caption = #3588#3623#3634#3617#3588#3619#3629#3610#3588#3621#3640#3617' 2 '#3611#3637#3610#3619#3636#3610#3641#3619#3603#3660
+      Category = 0
+      Hint = #3588#3623#3634#3617#3588#3619#3629#3610#3588#3621#3640#3617' 2 '#3611#3637#3610#3619#3636#3610#3641#3619#3603#3660
+      Visible = ivAlways
+      OnClick = btn2YearCoverageClick
+    end
+    object btn3YearCoverage: TdxBarLargeButton
+      Caption = #3588#3623#3634#3617#3588#3619#3629#3610#3588#3621#3640#3617' 3 '#3611#3637#3610#3619#3636#3610#3641#3619#3603#3660
+      Category = 0
+      Hint = #3588#3623#3634#3617#3588#3619#3629#3610#3588#3621#3640#3617' 3 '#3611#3637#3610#3619#3636#3610#3641#3619#3603#3660
+      Visible = ivAlways
+      OnClick = btn3YearCoverageClick
+    end
+    object dxBarLargeButton1: TdxBarLargeButton
+      Caption = #3624#3634#3626#3609' '#3626#3606#3634#3609
+      Category = 0
+      Hint = #3624#3634#3626#3609' '#3626#3606#3634#3609
+      Visible = ivAlways
+      OnClick = dxBarLargeButton1Click
+    end
+    object btnSchool: TdxBarLargeButton
+      Caption = #3650#3619#3591#3648#3619#3637#3618#3609
+      Category = 0
+      Hint = #3650#3619#3591#3648#3619#3637#3618#3609
+      Visible = ivAlways
+      OnClick = btnSchoolClick
+    end
+    object dxBarLargeButton3: TdxBarLargeButton
+      Caption = #3626#3606#3634#3609' '#3611#3619#3632#3585#3629#3610#3585#3634#3619
+      Category = 0
+      Hint = #3626#3606#3634#3609' '#3611#3619#3632#3585#3629#3610#3585#3634#3619
+      Visible = ivAlways
+      OnClick = dxBarLargeButton3Click
+    end
+    object dxBarLargeButton4: TdxBarLargeButton
+      Caption = 'New Button'
+      Category = 0
+      Hint = 'New Button'
+      Visible = ivAlways
+    end
+    object dxBarLargeButton2: TdxBarLargeButton
+      Caption = #3592#3635#3609#3623#3609' '#3609#3633#3585#3648#3619#3637#3618#3609
+      Category = 0
+      Hint = #3592#3635#3609#3623#3609' '#3609#3633#3585#3648#3619#3637#3618#3609
+      Visible = ivAlways
+    end
+    object dxBarLargeButton5: TdxBarLargeButton
+      Caption = 'EPI'
+      Category = 0
+      Hint = 'EPI'
+      Visible = ivAlways
+      OnClick = dxBarLargeButton5Click
+    end
   end
   object dxBarApplicationMenu1: TdxBarApplicationMenu
     BarManager = dxBarManager1
@@ -187,7 +392,7 @@ object frmmain: Tfrmmain
     ExtraPane.Items = <>
     ItemLinks = <>
     UseOwnFont = False
-    Left = 536
+    Left = 520
     Top = 8
   end
 end

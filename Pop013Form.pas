@@ -82,7 +82,7 @@ procedure TfrmPopAll013.FormActivate(Sender: TObject);
 begin
 MyQuery1.Active:=False;
 Caption:=frmmain.Caption+#13+' :: '+'จำนวนประชากรที่อยู๋จริง (Type 0,1,3) แยกรายหมู่บ้าน';
-dxRibbonStatusBar1.Panels[0].Text:=frmmain.Mainstatus.Panels[0].Text;
+dxRibbonStatusBar1.Panels[1].Text:=frmmain.Mainstatus.Panels[1].Text;
 MyQuery1.Active:=true;
 end;
 

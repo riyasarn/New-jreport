@@ -1,4 +1,4 @@
-unit Popall0123Form;
+unit BussinessFrom;
 
 interface
 
@@ -21,16 +21,14 @@ uses
   dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
   dxSkinVisualStudio2013Light, dxSkinVS2010, dxSkinWhiteprint,
   dxSkinXmas2008Blue, dxSkinsdxRibbonPainter, dxRibbonCustomizationForm,
-  dxSkinsdxBarPainter, cxStyles, dxSkinscxPCPainter, cxCustomData, cxFilter,
-  cxData, cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, cxGridLevel,
-  cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
-  cxGrid, dxStatusBar, dxRibbonStatusBar, dxBarApplicationMenu, dxBarExtItems,
-  cxCalendar, cxBarEditItem, DBAccess, MyAccess, MemDS, cxTextEdit
-  ,ShellAPI,cxExport,cxGridExportLink,
-  cxCurrencyEdit;
+  dxSkinsdxBarPainter, dxStatusBar, dxRibbonStatusBar, dxBarApplicationMenu,
+  cxStyles, dxSkinscxPCPainter, cxCustomData, cxFilter, cxData, cxDataStorage,
+  cxEdit, cxNavigator, Data.DB, cxDBData, cxGridLevel, cxGridCustomView,
+  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, DBAccess,
+  MyAccess, MemDS, cxTextEdit,ShellAPI,cxExport,cxGridExportLink;
 
 type
-  TfrmPopAll0123 = class(TdxRibbonForm)
+  TfrmBussiness = class(TdxRibbonForm)
     dxBarManager1: TdxBarManager;
     dxBarManager1Bar1: TdxBar;
     dxBarApplicationMenu1: TdxBarApplicationMenu;
@@ -40,26 +38,27 @@ type
     cxGrid1DBTableView1: TcxGridDBTableView;
     cxGrid1Level1: TcxGridLevel;
     cxGrid1: TcxGrid;
-    Process: TdxBar;
-    dxBarLargeButton1: TdxBarLargeButton;
-    dxBarLargeButton2: TdxBarLargeButton;
-    cmbBeginDate: TdxBarDateCombo;
-    cnbEndDate: TdxBarDateCombo;
-    btnProcess: TdxBarLargeButton;
-    btnExcelExport: TdxBarLargeButton;
-    btnBackToMain: TdxBarLargeButton;
-    cxBarEditItem1: TcxBarEditItem;
-    cxBarEditItem2: TcxBarEditItem;
     MyQuery1: TMyQuery;
     MyDataSource1: TMyDataSource;
     cxGrid1DBTableView1villno: TcxGridDBColumn;
     cxGrid1DBTableView1villname: TcxGridDBColumn;
-    cxGrid1DBTableView1Total: TcxGridDBColumn;
-    cxGrid1DBTableView1M: TcxGridDBColumn;
-    cxGrid1DBTableView1F: TcxGridDBColumn;
+    cxGrid1DBTableView1businessname: TcxGridDBColumn;
+    cxGrid1DBTableView1owner: TcxGridDBColumn;
+    cxGrid1DBTableView1businessdesc: TcxGridDBColumn;
+    cxGrid1DBTableView1address: TcxGridDBColumn;
+    cxGrid1DBTableView1foodanddrink: TcxGridDBColumn;
+    cxGrid1DBTableView1freshmart: TcxGridDBColumn;
+    cxGrid1DBTableView1alchoholpermit: TcxGridDBColumn;
+    cxGrid1DBTableView1amountemployeem: TcxGridDBColumn;
+    cxGrid1DBTableView1amountemployeef: TcxGridDBColumn;
+    cxGrid1DBTableView1xgis: TcxGridDBColumn;
+    cxGrid1DBTableView1ygis: TcxGridDBColumn;
+    dxBarManager1Bar2: TdxBar;
+    btnExcelExport: TdxBarLargeButton;
+    btnBack: TdxBarLargeButton;
     procedure FormActivate(Sender: TObject);
-    procedure btnBackToMainClick(Sender: TObject);
     procedure btnExcelExportClick(Sender: TObject);
+    procedure btnBackClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -67,35 +66,31 @@ type
   end;
 
 var
-  frmPopAll0123: TfrmPopAll0123;
+  frmBussiness: TfrmBussiness;
 
 implementation
 
 {$R *.dfm}
 
-uses datamodule, Mainfrom, LoginForm, ConnectionSettingForm, UnitAll;
+uses ConnectionSettingForm, datamodule, LoginForm, Mainfrom, UnitAll;
 
-procedure TfrmPopAll0123.btnBackToMainClick(Sender: TObject);
+procedure TfrmBussiness.btnBackClick(Sender: TObject);
 begin
-Self.Close;
+self.Close;
 end;
 
-procedure TfrmPopAll0123.btnExcelExportClick(Sender: TObject);
+procedure TfrmBussiness.btnExcelExportClick(Sender: TObject);
 begin
-ExportGridToExcel(unitall.gettempdir+ 'cxGridExport.xls', cxGrid1, True, True);
+    ExportGridToExcel(unitall.gettempdir+ 'cxGridExport.xls', cxGrid1, True, True);
 shellexecute(handle, 'Open', pchar(unitall.gettempdir + 'cxGridExport.xls'), nil, nil,sw_normal);
-
 end;
 
-procedure TfrmPopAll0123.FormActivate(Sender: TObject);
+procedure TfrmBussiness.FormActivate(Sender: TObject);
 begin
-MyQuery1.Active:=False;
-Caption:=frmmain.Caption+#13+' :: '+'จำนวนประชากรทั้งหมดแยกรายหมู่บ้าน';
-dxRibbonStatusBar1.Panels[1].Text:=frmmain.Mainstatus.Panels[1].Text;
 MyQuery1.Active:=true;
-
-
-
+cxGrid1.Visible:=true;
+Caption:=frmmain.Caption+#13+' :: '+'ข้อมูลร้านค้า/สถานประกอบการในเขตรับผิดชอบ';
+dxRibbonStatusBar1.Panels[1].Text:=frmmain.Mainstatus.Panels[1].Text;
 end;
 
 end.

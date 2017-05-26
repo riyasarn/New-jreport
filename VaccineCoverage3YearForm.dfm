@@ -1,15 +1,16 @@
-object frmPopAll0123: TfrmPopAll0123
+object frmVaccineCoverage3Year: TfrmVaccineCoverage3Year
   Left = 0
   Top = 0
-  Caption = #3592#3635#3609#3623#3609#3611#3619#3632#3594#3634#3585#3619#3607#3633#3657#3591#3627#3617#3604' '#3649#3618#3585#3619#3634#3618#3627#3617#3641#3656#3610#3657#3634#3609
-  ClientHeight = 480
-  ClientWidth = 811
+  Caption = 'frmVaccineCoverage3Year'
+  ClientHeight = 519
+  ClientWidth = 937
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  FormStyle = fsMDIForm
   OldCreateOrder = True
   Position = poScreenCenter
   WindowState = wsMaximized
@@ -19,7 +20,7 @@ object frmPopAll0123: TfrmPopAll0123
   object dxRibbon1: TdxRibbon
     Left = 0
     Top = 0
-    Width = 811
+    Width = 937
     Height = 159
     ApplicationButton.Menu = dxBarApplicationMenu1
     BarManager = dxBarManager1
@@ -31,18 +32,18 @@ object frmPopAll0123: TfrmPopAll0123
     TabStop = False
     object dxRibbon1Tab1: TdxRibbonTab
       Active = True
-      Caption = #3592#3635#3609#3623#3609#3611#3619#3632#3594#3634#3585#3619#3607#3633#3657#3591#3627#3617#3604' (Type 0,1,2,3)'
+      Caption = 'dxRibbon1Tab1'
       Groups = <
         item
-          ToolbarName = 'Process'
+          ToolbarName = 'dxBarManager1Bar2'
         end>
       Index = 0
     end
   end
   object dxRibbonStatusBar1: TdxRibbonStatusBar
     Left = 0
-    Top = 457
-    Width = 811
+    Top = 496
+    Width = 937
     Height = 23
     Panels = <
       item
@@ -59,10 +60,10 @@ object frmPopAll0123: TfrmPopAll0123
         PanelStyle.InsertKeyAppearance.ActiveFontColor = clDefault
         PanelStyle.InsertKeyAppearance.ActiveCaption = 'OVR'
         PanelStyle.InsertKeyAppearance.InactiveCaption = 'INS'
-        Width = 127
       end
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+        Width = 300
       end>
     Ribbon = dxRibbon1
     Font.Charset = DEFAULT_CHARSET
@@ -70,116 +71,184 @@ object frmPopAll0123: TfrmPopAll0123
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
+    ExplicitTop = 457
     ExplicitWidth = 640
   end
-  object cxGrid1: TcxGrid
+  object cxPageControl1: TcxPageControl
     Left = 0
     Top = 159
-    Width = 811
-    Height = 298
+    Width = 937
+    Height = 337
     Align = alClient
-    BorderWidth = 1
-    TabOrder = 6
+    TabOrder = 4
+    Properties.ActivePage = cxTabSheet1
+    Properties.CustomButtons.Buttons = <>
     ExplicitTop = 135
-    ExplicitHeight = 322
-    object cxGrid1DBTableView1: TcxGridDBTableView
-      Navigator.Buttons.CustomButtons = <>
-      DataController.DataSource = MyDataSource1
-      DataController.Summary.DefaultGroupSummaryItems = <>
-      DataController.Summary.FooterSummaryItems = <
-        item
-          Format = '#,### '#3588#3609
-          Kind = skSum
-          Column = cxGrid1DBTableView1F
+    ExplicitHeight = 361
+    ClientRectBottom = 333
+    ClientRectLeft = 4
+    ClientRectRight = 933
+    ClientRectTop = 24
+    object cxTabSheet1: TcxTabSheet
+      Caption = 'cxTabSheet1'
+      ImageIndex = 0
+      ExplicitHeight = 333
+      object cxGrid1: TcxGrid
+        Left = 0
+        Top = 0
+        Width = 929
+        Height = 309
+        Align = alClient
+        TabOrder = 0
+        LookAndFeel.Kind = lfUltraFlat
+        LookAndFeel.NativeStyle = False
+        ExplicitHeight = 333
+        object cxGrid1DBTableView1: TcxGridDBTableView
+          Navigator.Buttons.CustomButtons = <>
+          DataController.DataSource = MyDataSource1
+          DataController.Summary.DefaultGroupSummaryItems = <>
+          DataController.Summary.FooterSummaryItems = <
+            item
+              Format = #3592#3635#3609#3623#3609' #,### '#3627#3617#3641#3656#3610#3657#3634#3609
+              Kind = skCount
+              Column = cxGrid1DBTableView1villname
+            end
+            item
+              Format = '#,###'
+              Kind = skSum
+              Column = cxGrid1DBTableView1j12
+            end
+            item
+              Format = '#,###'
+              Kind = skSum
+              Column = cxGrid1DBTableView1mmr2
+            end
+            item
+              Format = '#,###'
+              Kind = skSum
+              Column = cxGrid1DBTableView1b
+            end
+            item
+              Format = '0.00'
+              Kind = skSum
+              Column = cxGrid1DBTableView1pmmr2
+            end
+            item
+              Format = '0.00'
+              Kind = skSum
+              Column = cxGrid1DBTableView1pj12
+            end>
+          DataController.Summary.SummaryGroups = <>
+          OptionsSelection.HideSelection = True
+          OptionsView.Footer = True
+          OptionsView.GroupByBox = False
+          object cxGrid1DBTableView1villno: TcxGridDBColumn
+            Caption = #3627#3617#3641#3656#3607#3637#3656
+            DataBinding.FieldName = 'villno'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            HeaderAlignmentHorz = taCenter
+          end
+          object cxGrid1DBTableView1villname: TcxGridDBColumn
+            Caption = #3627#3617#3641#3656#3610#3657#3634#3609
+            DataBinding.FieldName = 'villname'
+            HeaderAlignmentHorz = taCenter
+            Width = 114
+          end
+          object cxGrid1DBTableView1b: TcxGridDBColumn
+            Caption = #3592#3635#3609#3623#3609#3648#3604#3655#3585#3629#3634#3618#3640' 3 '#3611#3637#3610#3619#3636#3610#3641#3619#3603#3660
+            DataBinding.FieldName = 'b'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            FooterAlignmentHorz = taCenter
+            HeaderAlignmentHorz = taCenter
+            Width = 134
+          end
+          object cxGrid1DBTableView1mmr2: TcxGridDBColumn
+            Caption = #3652#3604#3657#3619#3633#3610' MMR2'
+            DataBinding.FieldName = 'mmr2'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            FooterAlignmentHorz = taCenter
+            HeaderAlignmentHorz = taCenter
+          end
+          object cxGrid1DBTableView1pmmr2: TcxGridDBColumn
+            Caption = #3619#3657#3629#3618#3621#3632
+            DataBinding.FieldName = 'pmmr2'
+            PropertiesClassName = 'TcxCurrencyEditProperties'
+            Properties.Alignment.Horz = taCenter
+            Properties.DisplayFormat = '0.00'
+            FooterAlignmentHorz = taCenter
+            HeaderAlignmentHorz = taCenter
+          end
+          object cxGrid1DBTableView1j12: TcxGridDBColumn
+            Caption = #3652#3604#3657#3619#3633#3610' JE'
+            DataBinding.FieldName = 'j12'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            FooterAlignmentHorz = taCenter
+            HeaderAlignmentHorz = taCenter
+          end
+          object cxGrid1DBTableView1pj12: TcxGridDBColumn
+            Caption = #3619#3657#3629#3618#3621#3632
+            DataBinding.FieldName = 'pj12'
+            PropertiesClassName = 'TcxCurrencyEditProperties'
+            Properties.Alignment.Horz = taCenter
+            Properties.DisplayFormat = '0.00'
+            FooterAlignmentHorz = taCenter
+            HeaderAlignmentHorz = taCenter
+          end
         end
-        item
-          Format = '#,### '#3588#3609
-          Kind = skSum
-          Column = cxGrid1DBTableView1M
+        object cxGrid1Level1: TcxGridLevel
+          GridView = cxGrid1DBTableView1
         end
-        item
-          Format = '#,### '#3588#3609
-          Kind = skSum
-          Column = cxGrid1DBTableView1Total
-        end
-        item
-          Format = #3619#3623#3617' # '#3627#3617#3641#3656#3610#3657#3634#3609
-          Kind = skCount
-          Column = cxGrid1DBTableView1villname
-        end>
-      DataController.Summary.SummaryGroups = <>
-      OptionsView.Footer = True
-      OptionsView.GroupByBox = False
-      object cxGrid1DBTableView1villno: TcxGridDBColumn
-        Caption = #3627#3617#3640#3656#3607#3637#3656
-        DataBinding.FieldName = 'villno'
-        PropertiesClassName = 'TcxTextEditProperties'
-        Properties.Alignment.Horz = taCenter
-        FooterAlignmentHorz = taCenter
-        HeaderAlignmentHorz = taCenter
-        Width = 73
-      end
-      object cxGrid1DBTableView1villname: TcxGridDBColumn
-        Caption = #3627#3617#3641#3656#3610#3657#3634#3609
-        DataBinding.FieldName = 'villname'
-        PropertiesClassName = 'TcxTextEditProperties'
-        Properties.Alignment.Horz = taCenter
-        FooterAlignmentHorz = taCenter
-        HeaderAlignmentHorz = taCenter
-        Width = 138
-      end
-      object cxGrid1DBTableView1Total: TcxGridDBColumn
-        Caption = #3619#3623#3617
-        DataBinding.FieldName = 'Total'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '#,###'
-        HeaderAlignmentHorz = taCenter
-        Options.Editing = False
-        Options.Filtering = False
-        Options.FilteringWithFindPanel = False
-        Options.Focusing = False
-        Options.FilteringAddValueItems = False
-        Options.FilteringFilteredItemsList = False
-        Options.FilteringMRUItemsList = False
-        Options.FilteringPopup = False
-        Options.FilteringPopupMultiSelect = False
-      end
-      object cxGrid1DBTableView1M: TcxGridDBColumn
-        Caption = #3648#3614#3624#3594#3634#3618
-        DataBinding.FieldName = 'M'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '#,###'
-        HeaderAlignmentHorz = taCenter
-        Options.Editing = False
-        Options.Filtering = False
-        Options.FilteringWithFindPanel = False
-        Options.Focusing = False
-        Options.FilteringAddValueItems = False
-        Options.FilteringFilteredItemsList = False
-        Options.FilteringMRUItemsList = False
-        Options.FilteringPopup = False
-        Options.FilteringPopupMultiSelect = False
-      end
-      object cxGrid1DBTableView1F: TcxGridDBColumn
-        Caption = #3648#3614#3624#3627#3597#3636#3591
-        DataBinding.FieldName = 'F'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '#,###'
-        HeaderAlignmentHorz = taCenter
-        Options.Editing = False
-        Options.Filtering = False
-        Options.FilteringWithFindPanel = False
-        Options.Focusing = False
-        Options.FilteringAddValueItems = False
-        Options.FilteringFilteredItemsList = False
-        Options.FilteringMRUItemsList = False
-        Options.FilteringPopup = False
-        Options.FilteringPopupMultiSelect = False
       end
     end
-    object cxGrid1Level1: TcxGridLevel
-      GridView = cxGrid1DBTableView1
+    object cxTabSheet2: TcxTabSheet
+      Caption = 'cxTabSheet2'
+      ImageIndex = 1
+      object DBChart1: TDBChart
+        Left = 0
+        Top = 0
+        Width = 929
+        Height = 309
+        Title.Text.Strings = (
+          #3619#3634#3618#3591#3634#3609#3588#3623#3634#3617#3588#3619#3629#3610#3588#3621#3640#3617#3623#3633#3588#3595#3637#3609' '#3648#3604#3655#3585#3629#3634#3618#3640' 3 '#3611#3637' '#3610#3619#3636#3610#3641#3619#3603#3660)
+        View3D = False
+        Align = alClient
+        TabOrder = 0
+        DefaultCanvas = 'TGDIPlusCanvas'
+        ColorPaletteIndex = 13
+        object Series1: TBarSeries
+          Marks.Visible = False
+          DataSource = MyQuery1
+          Title = 'MMR2'
+          XLabelsSource = 'villname'
+          XValues.Name = 'X'
+          XValues.Order = loAscending
+          YValues.Name = 'Bar'
+          YValues.Order = loNone
+          YValues.ValueSource = 'pmmr2'
+        end
+        object Series2: TBarSeries
+          Marks.Visible = False
+          DataSource = MyQuery1
+          Title = 'JE'
+          XLabelsSource = 'villname'
+          XValues.Name = 'X'
+          XValues.Order = loAscending
+          YValues.Name = 'Bar'
+          YValues.Order = loNone
+          YValues.ValueSource = 'pj12'
+        end
+      end
     end
+  end
+  object cxProgressBar1: TcxProgressBar
+    Left = 744
+    Top = 8
+    TabOrder = 7
+    Width = 121
   end
   object dxBarManager1: TdxBarManager
     Font.Charset = DEFAULT_CHARSET
@@ -218,22 +287,31 @@ object frmPopAll0123: TfrmPopAll0123
       Visible = True
       WholeRow = False
     end
-    object Process: TdxBar
+    object dxBarManager1Bar2: TdxBar
+      Caption = 'Custom 1'
       CaptionButtons = <>
       DockedLeft = 0
       DockedTop = 0
-      FloatLeft = 674
+      FloatLeft = 971
       FloatTop = 8
       FloatClientWidth = 0
       FloatClientHeight = 0
       ItemLinks = <
         item
           Visible = True
+          ItemName = 'dxBarCombo1'
+        end
+        item
+          Visible = True
+          ItemName = 'btnProcess'
+        end
+        item
+          Visible = True
           ItemName = 'btnExcelExport'
         end
         item
           Visible = True
-          ItemName = 'btnBackToMain'
+          ItemName = 'btnBack'
         end>
       OneOnRow = True
       Row = 0
@@ -241,57 +319,32 @@ object frmPopAll0123: TfrmPopAll0123
       Visible = True
       WholeRow = False
     end
-    object dxBarLargeButton1: TdxBarLargeButton
-      Caption = 'New Button'
+    object dxBarCombo1: TdxBarCombo
+      Caption = #3611#3637#3591#3610#3611#3619#3632#3617#3634#3603
       Category = 0
-      Hint = 'New Button'
+      Hint = #3611#3637#3591#3610#3611#3619#3632#3617#3634#3603
       Visible = ivAlways
-    end
-    object dxBarLargeButton2: TdxBarLargeButton
-      Caption = 'New Button'
-      Category = 0
-      Hint = 'New Button'
-      Visible = ivAlways
-    end
-    object cmbBeginDate: TdxBarDateCombo
-      Caption = #3605#3633#3657#3591#3649#3605#3656#3623#3633#3609#3607#3637#3656
-      Category = 0
-      Hint = #3605#3633#3657#3591#3649#3605#3656#3623#3633#3609#3607#3637#3656
-      Visible = ivAlways
-      Glyph.Data = {
-        F6000000424DF600000000000000760000002800000010000000100000000100
-        0400000000008000000000000000000000001000000000000000000000000000
-        8000008000000080800080000000800080008080000080808000C0C0C0000000
-        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00DDDDDDDDDDDD
-        DDDDDDDD00000000000DDDDD0FFFFFFFFF0D00000F0000000F0D0FFF0FFFFFFF
-        FF0D0F000FFF11FFFF0D0FFF0FFF11FFFF0D0FF10FFFF11FFF0D0FF10FFFFF11
-        FF0D0FF10FF11111FF0D0FF10FFFFFFFFF0D0FF104444444440D0FFF04444444
-        440D044400000000000D04444444440DDDDD00000000000DDDDD}
-      ShowCaption = True
-      ShowDayText = False
-    end
-    object cnbEndDate: TdxBarDateCombo
-      Caption = #3606#3638#3591#3623#3633#3609#3607#3637#3656
-      Category = 0
-      Hint = #3606#3638#3591#3623#3633#3609#3607#3637#3656
-      Visible = ivAlways
-      Glyph.Data = {
-        F6000000424DF600000000000000760000002800000010000000100000000100
-        0400000000008000000000000000000000001000000000000000000000000000
-        8000008000000080800080000000800080008080000080808000C0C0C0000000
-        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00DDDDDDDDDDDD
-        DDDDDDDD00000000000DDDDD0FFFFFFFFF0D00000F0000000F0D0FFF0FFFFFFF
-        FF0D0F000FFF11FFFF0D0FFF0FFF11FFFF0D0FF10FFFF11FFF0D0FF10FFFFF11
-        FF0D0FF10FF11111FF0D0FF10FFFFFFFFF0D0FF104444444440D0FFF04444444
-        440D044400000000000D04444444440DDDDD00000000000DDDDD}
-      ShowEditor = False
-      ShowDayText = False
+      Text = '2560'
+      Items.Strings = (
+        '2555'
+        '2556'
+        '2557'
+        '2558'
+        '2559'
+        '2560'
+        '2561'
+        '2562'
+        '2563'
+        '2564'
+        '2565')
+      ItemIndex = 5
     end
     object btnProcess: TdxBarLargeButton
       Caption = #3611#3619#3632' '#3617#3623#3621#3612#3621
       Category = 0
       Hint = #3611#3619#3632' '#3617#3623#3621#3612#3621
       Visible = ivAlways
+      OnClick = btnProcessClick
       HotGlyph.Data = {
         5A130000424D5A13000000000000360000002800000023000000230000000100
         2000000000002413000000000000000000000000000000000000000000000000
@@ -612,12 +665,12 @@ object frmPopAll0123: TfrmPopAll0123
         0000000000000000000000000000000000000000000000000000000000000000
         000000000000000000000000000000000000000000000000000000000000}
     end
-    object btnBackToMain: TdxBarLargeButton
+    object btnBack: TdxBarLargeButton
       Caption = #3585#3621#3633#3610' '#3627#3609#3657#3634#3627#3621#3633#3585
       Category = 0
       Hint = #3585#3621#3633#3610' '#3627#3609#3657#3634#3627#3621#3633#3585
       Visible = ivAlways
-      OnClick = btnBackToMainClick
+      OnClick = btnBackClick
       HotGlyph.Data = {
         5A130000424D5A13000000000000360000002800000023000000230000000100
         2000000000002413000000000000000000000000000000000000000000000000
@@ -775,21 +828,6 @@ object frmPopAll0123: TfrmPopAll0123
         0000000000000000000000000000000000000000000000000000000000000000
         000000000000000000000000000000000000000000000000000000000000}
     end
-    object cxBarEditItem1: TcxBarEditItem
-      Caption = 'New Item'
-      Category = 0
-      Hint = 'New Item'
-      Visible = ivAlways
-      PropertiesClassName = 'TcxDateEditProperties'
-      Properties.DateButtons = [btnToday]
-    end
-    object cxBarEditItem2: TcxBarEditItem
-      Caption = 'New Item'
-      Category = 0
-      Hint = 'New Item'
-      Visible = ivAlways
-      PropertiesClassName = 'TcxDateEditProperties'
-    end
   end
   object dxBarApplicationMenu1: TdxBarApplicationMenu
     BarManager = dxBarManager1
@@ -803,31 +841,117 @@ object frmPopAll0123: TfrmPopAll0123
   object MyQuery1: TMyQuery
     Connection = dmu.MyConnection1
     SQL.Strings = (
-      'SELECT v.villno,v.villname'
-      ',COUNT(*) as Total'
-      ',COUNT(CASE WHEN p.sex=1 THEN 1 END) as M'
-      ',COUNT(CASE WHEN p.sex=2 THEN 1 END) as F'
+      '#SET @y:=2017;'
+      'SET @y:= :y;'
+      'SELECT v.villno,v.villname '
+      ',b1.b'
+      ',mmr2.mmr2'
+      ',(mmr2.mmr2*100)/b1.b as pmmr2'
+      ',je12.j12'
+      ',(je12.j12*100)/b1.b as pj12'
       ''
+      ''
+      'FROM village as v'
+      'LEFT OUTER JOIN'
+      '('
+      'SELECT b.villno,b.villname,b.villcode  ,count(*) as b'
+      ''
+      'FROM'
+      '('
+      'SELECT v.villcode'
+      ',p.pid,villname,v.villno'
       'FROM person as p'
-      ''
       
         'INNER JOIN house as h on p.pcucodeperson=h.pcucode AND p.hcode=h' +
         '.hcode'
       'INNER JOIN village as v on h.villcode=v.villcode'
       ''
-      'WHERE p.typelive in (0,1,2,3)'
+      'WHERE'
+      'p.birth BETWEEN concat(@y-4,'#39'1001'#39') AND concat(@y-3,'#39'0930'#39')'
+      'and p.typelive in (0,1,3)'
       'AND p.dischargetype=9'
-      'AND p.nation=99'
+      'GROUP BY p.pid) as b'
+      ''
+      'GROUP BY b.villcode'
+      ')as b1 '
+      'on v.villcode=b1.villcode'
       ''
       ''
-      'GROUP BY v.villcode')
-    Active = True
-    Left = 438
-    Top = 24
+      'LEFT OUTER JOIN'
+      '('
+      'SELECT mmr.villcode,COUNT(*)as mmr2'
+      'FROM'
+      '('
+      'SELECT p.idcard,p.pid,p.fname,p.lname,p.birth,ve.dateepi'
+      ',v.villcode,v.villno'
+      'FROM person as p'
+      
+        'INNER JOIN house as h on p.pcucodeperson=h.pcucode AND p.hcode=h' +
+        '.hcode'
+      'INNER JOIN village as v on h.villcode=v.villcode'
+      
+        'LEFT OUTER JOIN visitepi as ve on p.pid=ve.pid AND p.pcucodepers' +
+        'on=ve.pcucodeperson'
+      'LEFT JOIN cdrug as cd on ve.vaccinecode=cd.drugcode'
+      ''
+      'WHERE'
+      'p.birth BETWEEN concat(@y-4,'#39'1001'#39') AND concat(@y-3,'#39'0930'#39')'
+      'and p.typelive in (0,1,3)'
+      'AND p.dischargetype=9'
+      'AND cd.files18epi IN ("073")'
+      'AND substring(v.villcode,7,2)!="0"'
+      ''
+      'GROUP BY p.idcard)as mmr'
+      ''
+      'GROUP BY mmr.villcode'
+      ')as mmr2'
+      'ON v.villcode=mmr2.villcode'
+      ''
+      'LEFT OUTER JOIN'
+      '('
+      'SELECT je.villcode,COUNT(*)as j12'
+      'FROM'
+      '('
+      'SELECT p.idcard,p.pid,p.fname,p.lname,p.birth,ve.dateepi'
+      ',v.villcode,v.villno'
+      'FROM person as p'
+      
+        'INNER JOIN house as h on p.pcucodeperson=h.pcucode AND p.hcode=h' +
+        '.hcode'
+      'INNER JOIN village as v on h.villcode=v.villcode'
+      
+        'LEFT OUTER JOIN visitepi as ve on p.pid=ve.pid AND p.pcucodepers' +
+        'on=ve.pcucodeperson'
+      'LEFT JOIN cdrug as cd on ve.vaccinecode=cd.drugcode'
+      ''
+      'WHERE'
+      'p.birth BETWEEN concat(@y-4,'#39'1001'#39') AND concat(@y-3,'#39'0930'#39')'
+      'and p.typelive in (0,1,3)'
+      'AND p.dischargetype=9'
+      'AND cd.files18epi IN ("J12")'
+      'AND substring(v.villcode,7,2)!="0"'
+      ''
+      'GROUP BY p.idcard)as je'
+      ''
+      'GROUP BY je.villcode'
+      ')as je12'
+      'on v.villcode=je12.villcode'
+      ''
+      'WHERE substring(v.villcode,7,2)!=0'
+      ''
+      'ORDER BY v.villcode')
+    Left = 232
+    Top = 8
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'y'
+        Value = nil
+      end>
   end
   object MyDataSource1: TMyDataSource
     DataSet = MyQuery1
-    Left = 369
-    Top = 27
+    Left = 296
+    Top = 8
   end
 end

@@ -29,18 +29,46 @@ type
     dxBarManager1Bar1: TdxBar;
     dxBarApplicationMenu1: TdxBarApplicationMenu;
     dxRibbon1: TdxRibbon;
-    ribGeneral: TdxRibbonTab;
+    tabGeneral: TdxRibbonTab;
     Mainstatus: TdxRibbonStatusBar;
     dxBarpop: TdxBar;
     btnPop0123: TdxBarLargeButton;
     btnPop013: TdxBarLargeButton;
     HouseByVillage: TdxBar;
     btnHouseByVillage: TdxBarLargeButton;
+    tabEPI: TdxRibbonTab;
+    barList: TdxBar;
+    btnEpi05list: TdxBarLargeButton;
+    barCoverage: TdxBar;
+    btn1YearCoverage: TdxBarLargeButton;
+    tabInsur: TdxRibbonTab;
+    dxBarManager1Bar2: TdxBar;
+    btnPtOutProvince: TdxBarLargeButton;
+    btn2YearCoverage: TdxBarLargeButton;
+    btn3YearCoverage: TdxBarLargeButton;
+    dxBarLargeButton1: TdxBarLargeButton;
+    btnSchool: TdxBarLargeButton;
+    dxBarLargeButton3: TdxBarLargeButton;
+    dxBarLargeButton4: TdxBarLargeButton;
+    tabSchoolHealth: TdxRibbonTab;
+    dxBarManager1Bar3: TdxBar;
+    dxBarLargeButton2: TdxBarLargeButton;
+    dxBarLargeButton5: TdxBarLargeButton;
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnPop0123Click(Sender: TObject);
     procedure btnPop013Click(Sender: TObject);
     procedure btnHouseByVillageClick(Sender: TObject);
+    procedure btnEpi05listClick(Sender: TObject);
+    procedure btn1YearCoverageClick(Sender: TObject);
+    procedure btnPtOutProvinceClick(Sender: TObject);
+    procedure btn2YearCoverageClick(Sender: TObject);
+    procedure dxBarLargeButton1Click(Sender: TObject);
+    procedure btnSchoolClick(Sender: TObject);
+    procedure dxBarLargeButton3Click(Sender: TObject);
+    procedure dxBarLargeButton5Click(Sender: TObject);
+    procedure btn3YearCoverageClick(Sender: TObject);
+
     const AppName='Report For JHCIS  :  ';
   private
     { Private declarations }
@@ -63,7 +91,9 @@ implementation
 {$R *.dfm}
 
 uses datamodule, LoginForm, ConnectionSettingForm, Popall0123Form, Pop013Form,
-  UnitAll, HouseForm;
+  UnitAll, HouseForm, EPI05List, VaccineCoverage1YearForm, PtOutProvinceForm,
+  VaccineCoverage2YearForm , TempleVillageForm, schoolForm, BussinessFrom,
+  SubEPIForm, VaccineCoverage3YearForm;
 
 procedure Tfrmmain.btnPop0123Click(Sender: TObject);
 begin
@@ -73,6 +103,53 @@ end;
 procedure Tfrmmain.btnPop013Click(Sender: TObject);
 begin
 frmPopAll013.Show;
+end;
+
+procedure Tfrmmain.btnPtOutProvinceClick(Sender: TObject);
+begin
+frmPtOutProvince.Show;
+end;
+
+procedure Tfrmmain.btnSchoolClick(Sender: TObject);
+begin
+frmschool.ShowModal;
+end;
+
+procedure Tfrmmain.dxBarLargeButton1Click(Sender: TObject);
+begin
+frmVillagetemple.ShowModal;
+end;
+
+procedure Tfrmmain.dxBarLargeButton3Click(Sender: TObject);
+begin
+frmBussiness.ShowModal;
+end;
+
+procedure Tfrmmain.dxBarLargeButton5Click(Sender: TObject);
+begin
+frmSubEpi.ShowModal;
+end;
+
+procedure Tfrmmain.btn2YearCoverageClick(Sender: TObject);
+begin
+frmVaccincoverage2year.ShowModal;
+end;
+
+
+
+procedure Tfrmmain.btn3YearCoverageClick(Sender: TObject);
+begin
+frmVaccineCoverage3Year.ShowModal;
+end;
+
+procedure Tfrmmain.btn1YearCoverageClick(Sender: TObject);
+begin
+frmVaccineCoverage1Year.Show;
+end;
+
+procedure Tfrmmain.btnEpi05listClick(Sender: TObject);
+begin
+frmepi05list.show;
 end;
 
 procedure Tfrmmain.btnHouseByVillageClick(Sender: TObject);
@@ -99,6 +176,7 @@ fini:tinifile;
 begin
 login:=False;
 first:=true;
+Mainstatus.Panels[1].Text:='JHCIS Report :: ผุ้ใช้งาน'+user_name;
 
 //dmu.MySQLMonitor1.Active:=true;
 end;

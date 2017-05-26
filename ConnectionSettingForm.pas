@@ -44,7 +44,8 @@ type
     procedure btncancelClick(Sender: TObject);
     procedure btnTestConnectClick(Sender: TObject);
     procedure btnSaveConnectionClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+
+
   private
     { Private declarations }
   public
@@ -59,7 +60,7 @@ implementation
 
 {$R *.dfm}
 
-uses datamodule, LoginForm;
+uses datamodule, LoginForm, UnitAll;
 
 procedure TfrmConSetting.btncancelClick(Sender: TObject);
 begin
@@ -76,17 +77,8 @@ begin
   fini.WriteString('SECURITY','PASSWORD',(edtpassword.Text));
   fini.WriteString('SECURITY','DB_NAME',edtdatabase.Text);
   ShowMessage('OK');
-{  with frmLogin do
-  begin
-  fini:=TIniFile.Create(ExtractFilePath(Application.ExeName)+'\jreport.INI');
-  password:=(fini.ReadString('SECURITY','PASSWORD','123456'));
-  username:=(fini.ReadString('SECURITY','USERNAME','root'));
-  server:=(fini.ReadString('SECURITY','DB_SERVER','localhost'));
-  database:=(fini.ReadString('SECURITY','DB_NAME','jhcisdb'));
-  port:=(fini.ReadInteger('SECURITY','DB_PORT',3333));
-  end;
- }
   Self.Close;
+
 
 
 end;
@@ -110,67 +102,38 @@ begin
         on e:Exception do
         begin
           b:=False;
-             ShowMessage('Connection Error !'+#13+e.Message);
+          Application.Title:='JHCIS Report';
+          ShowMessage('Connection Error !'+#13+e.Message);
         end;
     end;
     Connected:=False;
-    if b then ShowMessage('Connect Successful');
+    if b then
+    begin
+    Application.Title:='JHCIS Report';
+    ShowMessage('Connect Successful');
+
+    end;
 
   end;
 end;
 
-procedure TfrmConSetting.FormClose(Sender: TObject; var Action: TCloseAction);
-var b:Boolean;
-begin
-{
-  with dmu.MyConnection1 do
-  begin
-    Connected:=False;
-    Server:=edtServer.Text;
-    Database:=edtdatabase.Text;
-    Username:=edtuser.Text;
-    Password:=edtpassword.Text;
-    Port:=StrToIntDef(edtport.Text,3333);
-    b:=true;
 
-    try
-        Connected:=true;
-    except
-        on e:Exception do
-        begin
-          b:=False;
-             ShowMessage('Connection Error !'+#13+e.Message);
-       end;
-    end;
-    Connected :=False;
-    if b then
-    }
-    frmLogin.btnLogin.Enabled:=true;
-      dmu.MyQuery1.Close;
-      dmu.MyQuery1.sql.Text:='';
-      dmu.MyQuery1.sql.Text:='SELECT username FROM `user` WHERE officertype is NOT NULL';
-      dmu.MyQuery1.open;
-          while not dmu.MyQuery1.eof do
-          begin
-              frmLogin.cmbUser.Properties.Items.Add(dmu.MyQuery1.Fields.Fields[0].AsString);
-              dmu.MyQuery1.Next;
-          end;
 
-  //end;
 
-end;
 
 procedure TfrmConSetting.FormCreate(Sender: TObject);
 var fini:tinifile;
 szpath:array[0..254] of char;
 
 begin
+inherited;
 fini:=TIniFile.Create(ExtractFilePath(Application.ExeName)+'\jreport.INI');
 edtServer.Text:=fini.ReadString('SECURITY','DB_server','localhost');
 edtport.Text:=inttostr(fini.ReadInteger('SECURITY','DB_PORT',3333));
 edtuser.Text:=fini.ReadString('SECURUTY','USERNAME','root');
 edtpassword.Text:=fini.ReadString('SECURUTY','PASSWORD','123456');
 edtdatabase.Text:=fini.ReadString('SECURUTY','DB_NAME','jhcisdb');
+
 end;
 
 end.

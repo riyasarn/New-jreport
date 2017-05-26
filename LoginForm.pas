@@ -30,17 +30,20 @@ type
     btnConnectSetting: TButton;
     lblUsername: TLabel;
     lblPassword: TLabel;
-    edtUsername: TEdit;
     edtPassword: TEdit;
     btnLogin: TButton;
     btnCancel: TButton;
     Label1: TLabel;
     Label2: TLabel;
-    cmbUser: TcxComboBox;
+    edtUser: TEdit;
     procedure btnCancelClick(Sender: TObject);
     procedure btnConnectSettingClick(Sender: TObject);
     procedure btnLoginClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure FormClick(Sender: TObject);
+
+
+
   private
     { Private declarations }
   public
@@ -57,7 +60,7 @@ implementation
 
 {$R *.dfm}
 
-uses ConnectionSettingForm, datamodule, Mainfrom,inifiles;
+uses ConnectionSettingForm, datamodule, Mainfrom,inifiles, UnitAll;
 
 procedure TfrmLogin.btnCancelClick(Sender: TObject);
 begin
@@ -66,132 +69,155 @@ end;
 
 procedure TfrmLogin.btnConnectSettingClick(Sender: TObject);
 begin
+    frmLogin.Deactivate;
     frmConSetting.ShowModal;
 end;
 
+
 procedure TfrmLogin.btnLoginClick(Sender: TObject);
-var
-szpath : array[0..254] of char;
-fini : tinifile;
-sqlstr:string;
+var   fini:TIniFile;
+
 
 begin
-fini:=TIniFile.Create(ExtractFilePath(Application.ExeName)+'\jreport.INI');
-with dmu.MyConnection1 do
-begin
-  password:=(fini.ReadString('SECURITY','PASSWORD','123456'));
-  username:=(fini.ReadString('SECURITY','USERNAME','root'));
-  server:=(fini.ReadString('SECURITY','DB_SERVER','localhost'));
-  database:=(fini.ReadString('SECURITY','DB_NAME','jhcisdb'));
-  port:=(fini.ReadInteger('SECURITY','DB_PORT',3333));
+    fini:=TIniFile.Create(ExtractFilePath(Application.ExeName)+'\jreport.INI');
+    Server:=fini.ReadString('SECURITY','DB_server','localhost');
+    port:=fini.ReadInteger('SECURITY','DB_PORT',3333);
+    username:=fini.ReadString('SECURUTY','USERNAME','root');
+    password:=fini.ReadString('SECURUTY','PASSWORD','');
+    database:=fini.ReadString('SECURUTY','DB_NAME','jhcisdb');
+    with frmmain do
+    begin
+      con_user:=username;
+      con_pasw:=password;
+      con_db:=database;
+      con_port:=IntToStr(port);
+      con_server:=server;
 
-  with frmmain do
-  begin
-    con_user:=USERNAME;
-    con_pasw:=password;
-    con_db:=database;
-    con_port:=inttostr(port);
-    con_server:=server;
-    stLat:=(fini.ReadString('LOCATION','lat','17.9658616'));
-    stLng:=(fini.ReadString('LOCATION','lng','97.9418377'));
-  end;
+    end;
+    ///////////////////////////////////
+
+    ///////////////////////////////////
+    WITH dmu.MyQuery1 DO
+        BEGIN
+        edtUser.Text:='adm';
+        edtPassword.Text:='mda';
+        Close;
+        SQL.Clear;
+        SQL.Add('SELECT * FROM user ');
+        SQL.Add('WHERE officertype IS NOT NULL');
+        SQL.Add('and username='+#39+Trim(edtUser.Text)+#39);
+        SQL.Add('AND password='+#39+Trim(edtPassword.Text)+#39);
+        SQL.Add('');
+        Open;
+         end;
+        if dmu.MyQuery1.RecordCount>0 then
+          begin
+          with frmmain do
+              begin
+              user_name:=dmu.MyQuery1.FieldByName('fullname').AsString;
+              user_login:=dmu.MyQuery1.FieldByName('username').AsString;
+              pasw:=dmu.MyQuery1.FieldByName('password').AsString;
+              cid:=dmu.MyQuery1.FieldByName('idcard').AsString;
+              hcode:=dmu.MyQuery1.FieldByName('pcucode').AsString;
+              Caption:=frmmain.Caption+'JHCIS Report :: ผุ้ใช้งาน'+dmu.MyQuery1.FieldByName('fullname').AsString;
+              dbms:=dmu.MyConnection1.Database;
+              Mainstatus.Panels[1].Text:='JHCIS Report :: ผุ้ใช้งาน'+dmu.MyQuery1.FieldByName('fullname').AsString;
+
+              end;
+
+          with dmu.MyQuery1 do
+          begin
+              close;
+              sql.Text:='Select hosname from chospital where  hoscode = '+frmmain.hcode;
+              Open;
+              frmmain.hosname:=dmu.MyQuery1.FieldByName('hosname').AsString;
+              close;
+              frmmain.Caption:='JHCIS Report :: '+frmmain.hcode+'::'+frmmain.hosname;
+              sql.Text:='SELECT CONCAT(provcode,distcode,subdistcode) as LOCAL from chospital where hoscode = '+frmmain.hcode;
+              open;
+              frmmain.xlocal:=dmu.MyQuery1.FieldByName('local').AsString;
+              close;
+          end;
+          login:=true;
+          close;
+          frmmain.login:=true;
+        end
+        else
+        if dmu.MyQuery1.RecordCount=0 then
+        begin
+        Application.Title:='JHCIS Report' ;
+        ShowMessage('ชื่อผู้ใช้ หรือ รหัสผ่าน ไม่ถูกต้อง');
+        end;
+
 end;
 
-try
- with dmu.MyQuery1 do
-  begin
-Close;
-SQL.Clear;
-SQL.Add('SELECT * FROM user ');
-sql.Add('where username = '+#39+trim(edtusername.Text)+#39);
-sql.Add('and password = '+#39+trim(edtpassword.Text)+#39);
-SQL.Add('');
-Open;
- end;
- if dmu.MyQuery1.RecordCount>0 then
- begin
-   with frmmain do
-   begin
-        user_name:=dmu.MyQuery1.FieldByName('fullname').AsString;
-        user_login:=dmu.MyQuery1.FieldByName('username').AsString;
-        pasw:=dmu.MyQuery1.FieldByName('password').AsString;
-        cid:=dmu.MyQuery1.FieldByName('idcard').AsString;
-        hcode:=dmu.MyQuery1.FieldByName('pcucode').AsString;
-        //caption:=frmmain.Caption+' :ผู้ใช้งาน :'+dmu.MyQuery1.FieldByName('fullname').AsString;
-        dbms:=dmu.MyConnection1.Database;
-        Mainstatus.Panels[0].Text:=' :ผู้ใช้งาน :'+dmu.MyQuery1.FieldByName('fullname').AsString;
-   end;
- end;
- with dmu.MyQuery1 do
- begin
-   close;
-   sql.Text:='SELECT hosname from chospital WHERE hoscode= '+frmmain.hcode;
-   open;
-   frmmain.hosname:=dmu.MyQuery1.FieldByName('hosname').AsString;
-   frmmain.Caption:=frmmain.AppName+frmmain.hosname;//.MyQuery1.FieldByName('hosname').AsString;
-   close;
-   //sql.Text:='SELECT offid506 from office WHERE offid= '+frmmain.hcode;
-   //frmmain.offid506:=dmu.MyQuery1.FieldByName('offid506').AsString;
-   //close;
-   sql.Text:='SELECT VERSION()';
-   open;
-   frmmain.mysqlver:=dmu.MyQuery1.FieldByName('version()').AsString;
-   close;
-   SQL.Text := 'select concat(provcode,distcode,subdistcode) as local from chospital where hoscode = '+FrmMain.hcode;
-   Open;
-   FrmMain.xlocal := dmu.MyQuery1.fieldbyname('local').AsString;
-   Close;
- end;
-login:=true;
-close;
-frmmain.login:=true;
-finally
 
-end;
-end;
 
 procedure TfrmLogin.FormActivate(Sender: TObject);
-var
-szpath : array[0..254] of char;
-fini : tinifile;
-sqlstr:string;
+var   fini:TIniFile;
+      check :Boolean;
 begin
-  btnLogin.Enabled:=False;
- fini:=TIniFile.Create(ExtractFilePath(Application.ExeName)+'\jreport.INI');
-with dmu.MyConnection1 do
-begin
-  password:=(fini.ReadString('SECURITY','PASSWORD','123456'));
-  username:=(fini.ReadString('SECURITY','USERNAME','root'));
-  server:=(fini.ReadString('SECURITY','DB_SERVER','localhost'));
-  database:=(fini.ReadString('SECURITY','DB_NAME','jhcisdb'));
-  port:=(fini.ReadInteger('SECURITY','DB_PORT',3333));
-try
-  dmu.MyConnection1.Connected:=true;
-  with dmu.MyQuery1 do
-  begin
-  Close;
-  sql.Text:='';
-  sql.Text:='SELECT username FROM `user` WHERE officertype is NOT NULL';
-  open;
-      while not dmu.MyQuery1.eof do
+
+    fini:=TIniFile.Create(ExtractFilePath(Application.ExeName)+'\jreport.INI');
+    with dmu.MyConnection1 do
+    begin
+    Server:=fini.ReadString('SECURITY','DB_server','localhost');
+    port:=fini.ReadInteger('SECURITY','DB_PORT',3333);
+    username:=fini.ReadString('SECURUTY','USERNAME','root');
+    password:=fini.ReadString('SECURUTY','PASSWORD','123456');
+    database:=fini.ReadString('SECURUTY','DB_NAME','jhcisdb');
+  //      ShowMessage(concat(server,username,password,database,inttostr(port)));
+    Connected:=False;
+    check := true;
+    try
+      Connected:=true ;
+    except
+      on e: exception do
       begin
-          cmbUser.Properties.Items.Add(dmu.MyQuery1.Fields.Fields[0].AsString);
-          dmu.MyQuery1.Next;
+        check := false;
+        btnLogin.Enabled:=False;
       end;
-      dmu.MyConnection1.Close;
-  end;
-  btnLogin.Enabled:=true;
- except
- // on e:Exception do
- //   begin
- //   dmu.MyConnection1.Connected:=False;
- //   ShowMessage('โปรดตั้งค่าการเชื่อต่อฐานข้อมูล'+#13+e.Message);
- //   end;
-
-end;
+    end;
+    if check then
+      btnLogin.Enabled:=true;
+    end;
 
 
-  end;
+ end;
+
+
+procedure TfrmLogin.FormClick(Sender: TObject);
+var   fini:TIniFile;
+      check :Boolean;
+
+
+begin
+
+    fini:=TIniFile.Create(ExtractFilePath(Application.ExeName)+'\jreport.INI');
+
+
+    with dmu.MyConnection1 do
+    begin
+    Server:=fini.ReadString('SECURITY','DB_server','localhost');
+    port:=fini.ReadInteger('SECURITY','DB_PORT',3333);
+    username:=fini.ReadString('SECURUTY','USERNAME','root');
+    password:=fini.ReadString('SECURUTY','PASSWORD','123456');
+    database:=fini.ReadString('SECURUTY','DB_NAME','jhcisdb');
+  //      ShowMessage(concat(server,username,password,database,inttostr(port)));
+    Connected:=False;
+    check := true;
+    try
+      Connected:=true ;
+    except
+      on e: exception do
+      begin
+        check := false;
+        btnLogin.Enabled:=False;
+      end;
+    end;
+    if check then
+      btnLogin.Enabled:=true;
+    end;
 end;
 
 end.

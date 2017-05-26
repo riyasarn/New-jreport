@@ -25,7 +25,7 @@ uses
   cxStyles, dxSkinscxPCPainter, cxCustomData, cxFilter, cxData, cxDataStorage,
   cxEdit, cxNavigator, Data.DB, cxDBData, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxGridLevel, cxGridCustomView, cxGrid,
-  DBAccess, MyAccess, MemDS, cxCurrencyEdit, cxTextEdit;
+  DBAccess, MyAccess, MemDS, cxCurrencyEdit, cxTextEdit,ShellAPI,cxExport,cxGridExportLink;
 
 type
   TfrmHouse = class(TdxRibbonForm)
@@ -47,6 +47,9 @@ type
     btnExcelExport: TdxBarLargeButton;
     btnBackToMain: TdxBarLargeButton;
     procedure FormActivate(Sender: TObject);
+    procedure btnBackToMainClick(Sender: TObject);
+    procedure btnExcelExportClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -62,13 +65,30 @@ implementation
 
 uses datamodule, UnitAll, Mainfrom, LoginForm;
 
+procedure TfrmHouse.btnBackToMainClick(Sender: TObject);
+begin
+self.Close;
+end;
+
+procedure TfrmHouse.btnExcelExportClick(Sender: TObject);
+begin
+ExportGridToExcel(unitall.gettempdir+ 'cxGridExport.xls', cxGrid1, True, True);
+shellexecute(handle, 'Open', pchar(unitall.gettempdir + 'cxGridExport.xls'), nil, nil,sw_normal);
+
+end;
+
 procedure TfrmHouse.FormActivate(Sender: TObject);
 begin
 MyQuery1.Active:=False;
 Caption:=frmmain.Caption+#13+' :: '+'จำนวนหลังคาเรือนแยกรายหมู่บ้าน';
-dxRibbonStatusBar1.Panels[0].Text:=frmmain.Mainstatus.Panels[0].Text;
+dxRibbonStatusBar1.Panels[1].Text:=frmmain.Mainstatus.Panels[1].Text;
 MyQuery1.Active:=true;
 
+end;
+
+procedure TfrmHouse.FormCreate(Sender: TObject);
+begin
+Self.WindowState:=wsMaximized;
 end;
 
 end.

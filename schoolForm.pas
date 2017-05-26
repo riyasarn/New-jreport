@@ -1,4 +1,4 @@
-unit Popall0123Form;
+unit schoolForm;
 
 interface
 
@@ -24,41 +24,40 @@ uses
   dxSkinsdxBarPainter, cxStyles, dxSkinscxPCPainter, cxCustomData, cxFilter,
   cxData, cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, cxGridLevel,
   cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
-  cxGrid, dxStatusBar, dxRibbonStatusBar, dxBarApplicationMenu, dxBarExtItems,
-  cxCalendar, cxBarEditItem, DBAccess, MyAccess, MemDS, cxTextEdit
-  ,ShellAPI,cxExport,cxGridExportLink,
-  cxCurrencyEdit;
+  cxGrid, DBAccess, MyAccess, MemDS, dxStatusBar, dxRibbonStatusBar,
+  dxBarApplicationMenu,ShellAPI,cxExport,cxGridExportLink, cxTextEdit;
 
 type
-  TfrmPopAll0123 = class(TdxRibbonForm)
+  Tfrmschool = class(TdxRibbonForm)
     dxBarManager1: TdxBarManager;
     dxBarManager1Bar1: TdxBar;
     dxBarApplicationMenu1: TdxBarApplicationMenu;
     dxRibbon1: TdxRibbon;
     dxRibbon1Tab1: TdxRibbonTab;
     dxRibbonStatusBar1: TdxRibbonStatusBar;
+    MyQuery1: TMyQuery;
+    MyDataSource1: TMyDataSource;
+    dxBarManager1Bar2: TdxBar;
+    btnExcelExport: TdxBarLargeButton;
+    btnBack: TdxBarLargeButton;
     cxGrid1DBTableView1: TcxGridDBTableView;
     cxGrid1Level1: TcxGridLevel;
     cxGrid1: TcxGrid;
-    Process: TdxBar;
-    dxBarLargeButton1: TdxBarLargeButton;
-    dxBarLargeButton2: TdxBarLargeButton;
-    cmbBeginDate: TdxBarDateCombo;
-    cnbEndDate: TdxBarDateCombo;
-    btnProcess: TdxBarLargeButton;
-    btnExcelExport: TdxBarLargeButton;
-    btnBackToMain: TdxBarLargeButton;
-    cxBarEditItem1: TcxBarEditItem;
-    cxBarEditItem2: TcxBarEditItem;
-    MyQuery1: TMyQuery;
-    MyDataSource1: TMyDataSource;
     cxGrid1DBTableView1villno: TcxGridDBColumn;
     cxGrid1DBTableView1villname: TcxGridDBColumn;
-    cxGrid1DBTableView1Total: TcxGridDBColumn;
-    cxGrid1DBTableView1M: TcxGridDBColumn;
-    cxGrid1DBTableView1F: TcxGridDBColumn;
+    cxGrid1DBTableView1schoolname: TcxGridDBColumn;
+    cxGrid1DBTableView1schooldependname: TcxGridDBColumn;
+    cxGrid1DBTableView1maxclass: TcxGridDBColumn;
+    cxGrid1DBTableView1tm: TcxGridDBColumn;
+    cxGrid1DBTableView1tf: TcxGridDBColumn;
+    cxGrid1DBTableView1user: TcxGridDBColumn;
+    cxGrid1DBTableView1teacherhealthcare: TcxGridDBColumn;
+    cxGrid1DBTableView1telephone: TcxGridDBColumn;
+    cxGrid1DBTableView1lat: TcxGridDBColumn;
+    cxGrid1DBTableView1longti: TcxGridDBColumn;
+    procedure FormCreate(Sender: TObject);
     procedure FormActivate(Sender: TObject);
-    procedure btnBackToMainClick(Sender: TObject);
+    procedure btnBackClick(Sender: TObject);
     procedure btnExcelExportClick(Sender: TObject);
   private
     { Private declarations }
@@ -67,35 +66,37 @@ type
   end;
 
 var
-  frmPopAll0123: TfrmPopAll0123;
+  frmschool: Tfrmschool;
 
 implementation
 
 {$R *.dfm}
 
-uses datamodule, Mainfrom, LoginForm, ConnectionSettingForm, UnitAll;
+uses ConnectionSettingForm, datamodule, LoginForm, Mainfrom, UnitAll;
 
-procedure TfrmPopAll0123.btnBackToMainClick(Sender: TObject);
+procedure Tfrmschool.btnBackClick(Sender: TObject);
 begin
 Self.Close;
 end;
 
-procedure TfrmPopAll0123.btnExcelExportClick(Sender: TObject);
+procedure Tfrmschool.btnExcelExportClick(Sender: TObject);
 begin
 ExportGridToExcel(unitall.gettempdir+ 'cxGridExport.xls', cxGrid1, True, True);
 shellexecute(handle, 'Open', pchar(unitall.gettempdir + 'cxGridExport.xls'), nil, nil,sw_normal);
-
 end;
 
-procedure TfrmPopAll0123.FormActivate(Sender: TObject);
+procedure Tfrmschool.FormActivate(Sender: TObject);
 begin
-MyQuery1.Active:=False;
-Caption:=frmmain.Caption+#13+' :: '+'จำนวนประชากรทั้งหมดแยกรายหมู่บ้าน';
-dxRibbonStatusBar1.Panels[1].Text:=frmmain.Mainstatus.Panels[1].Text;
 MyQuery1.Active:=true;
+cxGrid1.Visible:=true;
+Caption:=frmmain.Caption+#13+' :: '+'ข้อมูลโรงเรียนในเขตรับผิดชอบ';
+dxRibbonStatusBar1.Panels[1].Text:=frmmain.Mainstatus.Panels[1].Text;
+end;
 
-
-
+procedure Tfrmschool.FormCreate(Sender: TObject);
+begin
+cxGrid1DBTableView1.OptionsView.GroupByBox:=false;
+cxGrid1.Visible:=false;
 end;
 
 end.

@@ -8,7 +8,6 @@ object dmu: Tdmu
     Options.Charset = 'tis620'
     Username = 'root'
     Server = 'localhost'
-    Connected = True
     Left = 147
     Top = 36
     EncryptedPassword = 'CEFFCDFFCCFFCBFFCAFFC9FF'

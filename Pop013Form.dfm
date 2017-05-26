@@ -11,6 +11,7 @@ object frmPopAll013: TfrmPopAll013
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = True
+  Position = poScreenCenter
   WindowState = wsMaximized
   OnActivate = FormActivate
   PixelsPerInch = 96
@@ -45,10 +46,6 @@ object frmPopAll013: TfrmPopAll013
     Height = 23
     Panels = <
       item
-        PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
-        Width = 300
-      end
-      item
         PanelStyleClassName = 'TdxStatusBarKeyboardStatePanelStyle'
         PanelStyle.CapsLockKeyAppearance.ActiveFontColor = clDefault
         PanelStyle.CapsLockKeyAppearance.ActiveCaption = 'CAPS'
@@ -62,6 +59,7 @@ object frmPopAll013: TfrmPopAll013
         PanelStyle.InsertKeyAppearance.ActiveFontColor = clDefault
         PanelStyle.InsertKeyAppearance.ActiveCaption = 'OVR'
         PanelStyle.InsertKeyAppearance.InactiveCaption = 'INS'
+        Width = 127
       end
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
@@ -80,12 +78,8 @@ object frmPopAll013: TfrmPopAll013
     Height = 298
     Align = alClient
     TabOrder = 6
-    LookAndFeel.NativeStyle = False
-    LookAndFeel.SkinName = 'Blue'
-    ExplicitLeft = 228
-    ExplicitTop = 213
-    ExplicitWidth = 250
-    ExplicitHeight = 200
+    ExplicitTop = 135
+    ExplicitHeight = 322
     object cxGrid1DBTableView1: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       DataController.DataSource = MyDataSource1

@@ -15,6 +15,7 @@ object frmLogin: TfrmLogin
   OldCreateOrder = False
   Position = poScreenCenter
   OnActivate = FormActivate
+  OnClick = FormClick
   PixelsPerInch = 96
   TextHeight = 16
   object lblUsername: TLabel
@@ -51,7 +52,7 @@ object frmLogin: TfrmLogin
     Align = alLeft
     Color = clGradientInactiveCaption
     ParentBackground = False
-    TabOrder = 0
+    TabOrder = 4
     object Image1: TImage
       Left = 21
       Top = 9
@@ -569,19 +570,6 @@ object frmLogin: TfrmLogin
       OnClick = btnConnectSettingClick
     end
   end
-  object edtUsername: TEdit
-    Left = 246
-    Top = 74
-    Width = 121
-    Height = 27
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 1
-  end
   object edtPassword: TEdit
     Left = 246
     Top = 135
@@ -594,7 +582,7 @@ object frmLogin: TfrmLogin
     Font.Style = []
     ParentFont = False
     PasswordChar = '*'
-    TabOrder = 2
+    TabOrder = 1
   end
   object btnLogin: TButton
     Left = 228
@@ -608,7 +596,7 @@ object frmLogin: TfrmLogin
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 3
+    TabOrder = 2
     OnClick = btnLoginClick
   end
   object btnCancel: TButton
@@ -623,13 +611,14 @@ object frmLogin: TfrmLogin
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 4
+    TabOrder = 3
     OnClick = btnCancelClick
   end
-  object cmbUser: TcxComboBox
+  object edtUser: TEdit
     Left = 246
-    Top = 18
-    TabOrder = 5
+    Top = 81
     Width = 121
+    Height = 27
+    TabOrder = 0
   end
 end

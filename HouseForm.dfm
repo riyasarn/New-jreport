@@ -3,7 +3,7 @@ object frmHouse: TfrmHouse
   Top = 0
   Caption = 'frmHouse'
   ClientHeight = 480
-  ClientWidth = 640
+  ClientWidth = 896
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,14 +11,16 @@ object frmHouse: TfrmHouse
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = True
+  Position = poScreenCenter
   WindowState = wsMaximized
   OnActivate = FormActivate
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object dxRibbon1: TdxRibbon
     Left = 0
     Top = 0
-    Width = 640
+    Width = 896
     Height = 159
     ApplicationButton.Menu = dxBarApplicationMenu1
     BarManager = dxBarManager1
@@ -28,6 +30,7 @@ object frmHouse: TfrmHouse
     Contexts = <>
     TabOrder = 0
     TabStop = False
+    ExplicitWidth = 640
     object DribonHouse: TdxRibbonTab
       Active = True
       Caption = #3592#3635#3609#3623#3609#3627#3621#3633#3591#3588#3634#3648#3619#3639#3629#3609#3649#3618#3585#3619#3634#3618#3627#3617#3641#3656#3610#3657#3634#3609
@@ -41,13 +44,9 @@ object frmHouse: TfrmHouse
   object dxRibbonStatusBar1: TdxRibbonStatusBar
     Left = 0
     Top = 457
-    Width = 640
+    Width = 896
     Height = 23
     Panels = <
-      item
-        PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
-        Width = 300
-      end
       item
         PanelStyleClassName = 'TdxStatusBarKeyboardStatePanelStyle'
         PanelStyle.CapsLockKeyAppearance.ActiveFontColor = clDefault
@@ -62,6 +61,7 @@ object frmHouse: TfrmHouse
         PanelStyle.InsertKeyAppearance.ActiveFontColor = clDefault
         PanelStyle.InsertKeyAppearance.ActiveCaption = 'OVR'
         PanelStyle.InsertKeyAppearance.InactiveCaption = 'INS'
+        Width = 127
       end
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
@@ -72,17 +72,19 @@ object frmHouse: TfrmHouse
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
+    ExplicitWidth = 640
   end
   object cxGrid1: TcxGrid
     Left = 0
     Top = 159
-    Width = 640
+    Width = 896
     Height = 298
     Align = alClient
     TabOrder = 6
     LookAndFeel.NativeStyle = False
-    LookAndFeel.SkinName = 'Blue'
-    ExplicitTop = 162
+    ExplicitTop = 135
+    ExplicitWidth = 640
+    ExplicitHeight = 322
     object cxGrid1DBTableView1: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       DataController.DataSource = MyDataSource1
@@ -99,6 +101,14 @@ object frmHouse: TfrmHouse
           Column = cxGrid1DBTableView1villname
         end>
       DataController.Summary.SummaryGroups = <>
+      OptionsData.CancelOnExit = False
+      OptionsData.Deleting = False
+      OptionsData.DeletingConfirmation = False
+      OptionsData.Editing = False
+      OptionsData.Inserting = False
+      OptionsSelection.CellSelect = False
+      OptionsSelection.HideFocusRectOnExit = False
+      OptionsSelection.InvertSelect = False
       OptionsView.Footer = True
       OptionsView.GroupByBox = False
       object cxGrid1DBTableView1villno: TcxGridDBColumn
@@ -107,6 +117,12 @@ object frmHouse: TfrmHouse
         PropertiesClassName = 'TcxTextEditProperties'
         Properties.Alignment.Horz = taCenter
         HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.Filtering = False
+        Options.FilteringAddValueItems = False
+        Options.FilteringFilteredItemsList = False
+        Options.FilteringMRUItemsList = False
+        Options.FilteringPopup = False
       end
       object cxGrid1DBTableView1villname: TcxGridDBColumn
         Caption = #3627#3617#3641#3656#3610#3657#3634#3609
@@ -191,10 +207,11 @@ object frmHouse: TfrmHouse
       WholeRow = False
     end
     object btnExcelExport: TdxBarLargeButton
-      Caption = 'New Button'
+      Caption = #3626#3656#3591#3629#3629#3585' Excel'
       Category = 0
-      Hint = 'New Button'
+      Hint = #3626#3656#3591#3629#3629#3585' Excel'
       Visible = ivAlways
+      OnClick = btnExcelExportClick
       HotGlyph.Data = {
         5A130000424D5A13000000000000360000002800000023000000230000000100
         2000000000002413000000000000000000000000000000000000000000000000
@@ -353,10 +370,11 @@ object frmHouse: TfrmHouse
         000000000000000000000000000000000000000000000000000000000000}
     end
     object btnBackToMain: TdxBarLargeButton
-      Caption = 'New Button'
+      Caption = #3585#3621#3633#3610' '#3627#3609#3657#3634#3627#3621#3633#3585
       Category = 0
-      Hint = 'New Button'
+      Hint = #3585#3621#3633#3610' '#3627#3609#3657#3634#3627#3621#3633#3585
       Visible = ivAlways
+      OnClick = btnBackToMainClick
       HotGlyph.Data = {
         5A130000424D5A13000000000000360000002800000023000000230000000100
         2000000000002413000000000000000000000000000000000000000000000000

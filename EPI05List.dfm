@@ -1,9 +1,9 @@
-object frmPopAll0123: TfrmPopAll0123
+object frmEPI05List: TfrmEPI05List
   Left = 0
   Top = 0
-  Caption = #3592#3635#3609#3623#3609#3611#3619#3632#3594#3634#3585#3619#3607#3633#3657#3591#3627#3617#3604' '#3649#3618#3585#3619#3634#3618#3627#3617#3641#3656#3610#3657#3634#3609
-  ClientHeight = 480
-  ClientWidth = 811
+  Caption = 'frmEPI05List'
+  ClientHeight = 509
+  ClientWidth = 922
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,7 +11,7 @@ object frmPopAll0123: TfrmPopAll0123
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = True
-  Position = poScreenCenter
+  Position = poDesktopCenter
   WindowState = wsMaximized
   OnActivate = FormActivate
   PixelsPerInch = 96
@@ -19,7 +19,7 @@ object frmPopAll0123: TfrmPopAll0123
   object dxRibbon1: TdxRibbon
     Left = 0
     Top = 0
-    Width = 811
+    Width = 922
     Height = 159
     ApplicationButton.Menu = dxBarApplicationMenu1
     BarManager = dxBarManager1
@@ -31,18 +31,18 @@ object frmPopAll0123: TfrmPopAll0123
     TabStop = False
     object dxRibbon1Tab1: TdxRibbonTab
       Active = True
-      Caption = #3592#3635#3609#3623#3609#3611#3619#3632#3594#3634#3585#3619#3607#3633#3657#3591#3627#3617#3604' (Type 0,1,2,3)'
+      Caption = #3607#3632#3648#3610#3637#3618#3609#3623#3633#3588#3595#3637#3609#3648#3604#3655#3585' 0-5 '#3611#3637
       Groups = <
         item
-          ToolbarName = 'Process'
+          ToolbarName = 'dxBarManager1Bar2'
         end>
       Index = 0
     end
   end
   object dxRibbonStatusBar1: TdxRibbonStatusBar
     Left = 0
-    Top = 457
-    Width = 811
+    Top = 486
+    Width = 922
     Height = 23
     Panels = <
       item
@@ -70,115 +70,248 @@ object frmPopAll0123: TfrmPopAll0123
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
+    ExplicitTop = 457
     ExplicitWidth = 640
   end
-  object cxGrid1: TcxGrid
+  object gridEpi05list: TcxGrid
     Left = 0
     Top = 159
-    Width = 811
-    Height = 298
+    Width = 922
+    Height = 327
     Align = alClient
-    BorderWidth = 1
     TabOrder = 6
     ExplicitTop = 135
-    ExplicitHeight = 322
-    object cxGrid1DBTableView1: TcxGridDBTableView
+    ExplicitHeight = 351
+    object gridEpi05listDBTableView1: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       DataController.DataSource = MyDataSource1
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <
         item
-          Format = '#,### '#3588#3609
-          Kind = skSum
-          Column = cxGrid1DBTableView1F
-        end
-        item
-          Format = '#,### '#3588#3609
-          Kind = skSum
-          Column = cxGrid1DBTableView1M
-        end
-        item
-          Format = '#,### '#3588#3609
-          Kind = skSum
-          Column = cxGrid1DBTableView1Total
-        end
-        item
-          Format = #3619#3623#3617' # '#3627#3617#3641#3656#3610#3657#3634#3609
+          Format = #3592#3635#3609#3623#3609' #,### '#3588#3609
           Kind = skCount
-          Column = cxGrid1DBTableView1villname
+          Column = gridEpi05listDBTableView1DBColumn
         end>
       DataController.Summary.SummaryGroups = <>
       OptionsView.Footer = True
       OptionsView.GroupByBox = False
-      object cxGrid1DBTableView1villno: TcxGridDBColumn
-        Caption = #3627#3617#3640#3656#3607#3637#3656
+      object gridEpi05listDBTableView1PID: TcxGridDBColumn
+        DataBinding.FieldName = 'PID'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        FooterAlignmentHorz = taCenter
+        HeaderAlignmentHorz = taCenter
+      end
+      object gridEpi05listDBTableView1DBColumn: TcxGridDBColumn
+        DataBinding.FieldName = #3594#3639#3656#3629' - '#3626#3585#3640#3621
+        PropertiesClassName = 'TcxTextEditProperties'
+        FooterAlignmentHorz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 200
+      end
+      object gridEpi05listDBTableView1DBColumn1: TcxGridDBColumn
+        DataBinding.FieldName = #3623#3633#3609#3648#3585#3636#3604
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        FooterAlignmentHorz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 89
+      end
+      object gridEpi05listDBTableView1DBColumn2: TcxGridDBColumn
+        DataBinding.FieldName = #3629#3634#3618#3640' ('#3611#3637')'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        FooterAlignmentHorz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 68
+      end
+      object gridEpi05listDBTableView1hno: TcxGridDBColumn
+        Caption = #3610#3657#3634#3609#3648#3621#3586#3607#3637#3656
+        DataBinding.FieldName = 'hno'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        FooterAlignmentHorz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 88
+      end
+      object gridEpi05listDBTableView1villno: TcxGridDBColumn
+        Caption = #3627#3617#3641#3656
         DataBinding.FieldName = 'villno'
         PropertiesClassName = 'TcxTextEditProperties'
         Properties.Alignment.Horz = taCenter
-        FooterAlignmentHorz = taCenter
         HeaderAlignmentHorz = taCenter
-        Width = 73
+        Width = 53
       end
-      object cxGrid1DBTableView1villname: TcxGridDBColumn
+      object gridEpi05listDBTableView1villname: TcxGridDBColumn
         Caption = #3627#3617#3641#3656#3610#3657#3634#3609
         DataBinding.FieldName = 'villname'
+        HeaderAlignmentHorz = taCenter
+        Width = 116
+      end
+      object gridEpi05listDBTableView1BCG: TcxGridDBColumn
+        DataBinding.FieldName = 'BCG'
         PropertiesClassName = 'TcxTextEditProperties'
         Properties.Alignment.Horz = taCenter
-        FooterAlignmentHorz = taCenter
         HeaderAlignmentHorz = taCenter
-        Width = 138
+        Width = 70
       end
-      object cxGrid1DBTableView1Total: TcxGridDBColumn
-        Caption = #3619#3623#3617
-        DataBinding.FieldName = 'Total'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '#,###'
+      object gridEpi05listDBTableView1HBV1: TcxGridDBColumn
+        DataBinding.FieldName = 'HBV1'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
         HeaderAlignmentHorz = taCenter
-        Options.Editing = False
-        Options.Filtering = False
-        Options.FilteringWithFindPanel = False
-        Options.Focusing = False
-        Options.FilteringAddValueItems = False
-        Options.FilteringFilteredItemsList = False
-        Options.FilteringMRUItemsList = False
-        Options.FilteringPopup = False
-        Options.FilteringPopupMultiSelect = False
+        Width = 70
       end
-      object cxGrid1DBTableView1M: TcxGridDBColumn
-        Caption = #3648#3614#3624#3594#3634#3618
-        DataBinding.FieldName = 'M'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '#,###'
+      object gridEpi05listDBTableView1HBV2: TcxGridDBColumn
+        DataBinding.FieldName = 'HBV2'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
         HeaderAlignmentHorz = taCenter
-        Options.Editing = False
-        Options.Filtering = False
-        Options.FilteringWithFindPanel = False
-        Options.Focusing = False
-        Options.FilteringAddValueItems = False
-        Options.FilteringFilteredItemsList = False
-        Options.FilteringMRUItemsList = False
-        Options.FilteringPopup = False
-        Options.FilteringPopupMultiSelect = False
+        Width = 70
       end
-      object cxGrid1DBTableView1F: TcxGridDBColumn
-        Caption = #3648#3614#3624#3627#3597#3636#3591
-        DataBinding.FieldName = 'F'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '#,###'
+      object gridEpi05listDBTableView1HBV3: TcxGridDBColumn
+        DataBinding.FieldName = 'HBV3'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
         HeaderAlignmentHorz = taCenter
-        Options.Editing = False
-        Options.Filtering = False
-        Options.FilteringWithFindPanel = False
-        Options.Focusing = False
-        Options.FilteringAddValueItems = False
-        Options.FilteringFilteredItemsList = False
-        Options.FilteringMRUItemsList = False
-        Options.FilteringPopup = False
-        Options.FilteringPopupMultiSelect = False
+        Width = 70
+      end
+      object gridEpi05listDBTableView1DHB1: TcxGridDBColumn
+        DataBinding.FieldName = 'DHB1'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 70
+      end
+      object gridEpi05listDBTableView1DHB2: TcxGridDBColumn
+        DataBinding.FieldName = 'DHB2'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 70
+      end
+      object gridEpi05listDBTableView1DHB3: TcxGridDBColumn
+        DataBinding.FieldName = 'DHB3'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 70
+      end
+      object gridEpi05listDBTableView1DTP1: TcxGridDBColumn
+        DataBinding.FieldName = 'DTP1'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 70
+      end
+      object gridEpi05listDBTableView1DTP2: TcxGridDBColumn
+        DataBinding.FieldName = 'DTP2'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 70
+      end
+      object gridEpi05listDBTableView1DTP3: TcxGridDBColumn
+        DataBinding.FieldName = 'DTP3'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 70
+      end
+      object gridEpi05listDBTableView1DTP4: TcxGridDBColumn
+        DataBinding.FieldName = 'DTP4'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 70
+      end
+      object gridEpi05listDBTableView1DTP5: TcxGridDBColumn
+        DataBinding.FieldName = 'DTP5'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 70
+      end
+      object gridEpi05listDBTableView1OPV1: TcxGridDBColumn
+        DataBinding.FieldName = 'OPV1'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 70
+      end
+      object gridEpi05listDBTableView1OPV2: TcxGridDBColumn
+        DataBinding.FieldName = 'OPV2'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 70
+      end
+      object gridEpi05listDBTableView1OPV3: TcxGridDBColumn
+        DataBinding.FieldName = 'OPV3'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 70
+      end
+      object gridEpi05listDBTableView1OPV4: TcxGridDBColumn
+        DataBinding.FieldName = 'OPV4'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 70
+      end
+      object gridEpi05listDBTableView1OPV5: TcxGridDBColumn
+        DataBinding.FieldName = 'OPV5'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 70
+      end
+      object gridEpi05listDBTableView1MMR: TcxGridDBColumn
+        DataBinding.FieldName = 'MMR'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 70
+      end
+      object gridEpi05listDBTableView1JE1: TcxGridDBColumn
+        DataBinding.FieldName = 'JE1'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 70
+      end
+      object gridEpi05listDBTableView1JE2: TcxGridDBColumn
+        DataBinding.FieldName = 'JE2'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 70
+      end
+      object gridEpi05listDBTableView1JE3: TcxGridDBColumn
+        DataBinding.FieldName = 'JE3'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 70
+      end
+      object gridEpi05listDBTableView1LJE1: TcxGridDBColumn
+        DataBinding.FieldName = 'LJE1'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 70
+      end
+      object gridEpi05listDBTableView1LJE2: TcxGridDBColumn
+        DataBinding.FieldName = 'LJE2'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        Width = 70
       end
     end
-    object cxGrid1Level1: TcxGridLevel
-      GridView = cxGrid1DBTableView1
+    object gridEpi05listLevel1: TcxGridLevel
+      GridView = gridEpi05listDBTableView1
     end
   end
   object dxBarManager1: TdxBarManager
@@ -218,12 +351,13 @@ object frmPopAll0123: TfrmPopAll0123
       Visible = True
       WholeRow = False
     end
-    object Process: TdxBar
+    object dxBarManager1Bar2: TdxBar
+      Caption = #3607#3632#3648#3610#3637#3618#3609
       CaptionButtons = <>
       DockedLeft = 0
       DockedTop = 0
-      FloatLeft = 674
-      FloatTop = 8
+      FloatLeft = 956
+      FloatTop = 10
       FloatClientWidth = 0
       FloatClientHeight = 0
       ItemLinks = <
@@ -240,214 +374,6 @@ object frmPopAll0123: TfrmPopAll0123
       UseOwnFont = False
       Visible = True
       WholeRow = False
-    end
-    object dxBarLargeButton1: TdxBarLargeButton
-      Caption = 'New Button'
-      Category = 0
-      Hint = 'New Button'
-      Visible = ivAlways
-    end
-    object dxBarLargeButton2: TdxBarLargeButton
-      Caption = 'New Button'
-      Category = 0
-      Hint = 'New Button'
-      Visible = ivAlways
-    end
-    object cmbBeginDate: TdxBarDateCombo
-      Caption = #3605#3633#3657#3591#3649#3605#3656#3623#3633#3609#3607#3637#3656
-      Category = 0
-      Hint = #3605#3633#3657#3591#3649#3605#3656#3623#3633#3609#3607#3637#3656
-      Visible = ivAlways
-      Glyph.Data = {
-        F6000000424DF600000000000000760000002800000010000000100000000100
-        0400000000008000000000000000000000001000000000000000000000000000
-        8000008000000080800080000000800080008080000080808000C0C0C0000000
-        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00DDDDDDDDDDDD
-        DDDDDDDD00000000000DDDDD0FFFFFFFFF0D00000F0000000F0D0FFF0FFFFFFF
-        FF0D0F000FFF11FFFF0D0FFF0FFF11FFFF0D0FF10FFFF11FFF0D0FF10FFFFF11
-        FF0D0FF10FF11111FF0D0FF10FFFFFFFFF0D0FF104444444440D0FFF04444444
-        440D044400000000000D04444444440DDDDD00000000000DDDDD}
-      ShowCaption = True
-      ShowDayText = False
-    end
-    object cnbEndDate: TdxBarDateCombo
-      Caption = #3606#3638#3591#3623#3633#3609#3607#3637#3656
-      Category = 0
-      Hint = #3606#3638#3591#3623#3633#3609#3607#3637#3656
-      Visible = ivAlways
-      Glyph.Data = {
-        F6000000424DF600000000000000760000002800000010000000100000000100
-        0400000000008000000000000000000000001000000000000000000000000000
-        8000008000000080800080000000800080008080000080808000C0C0C0000000
-        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00DDDDDDDDDDDD
-        DDDDDDDD00000000000DDDDD0FFFFFFFFF0D00000F0000000F0D0FFF0FFFFFFF
-        FF0D0F000FFF11FFFF0D0FFF0FFF11FFFF0D0FF10FFFF11FFF0D0FF10FFFFF11
-        FF0D0FF10FF11111FF0D0FF10FFFFFFFFF0D0FF104444444440D0FFF04444444
-        440D044400000000000D04444444440DDDDD00000000000DDDDD}
-      ShowEditor = False
-      ShowDayText = False
-    end
-    object btnProcess: TdxBarLargeButton
-      Caption = #3611#3619#3632' '#3617#3623#3621#3612#3621
-      Category = 0
-      Hint = #3611#3619#3632' '#3617#3623#3621#3612#3621
-      Visible = ivAlways
-      HotGlyph.Data = {
-        5A130000424D5A13000000000000360000002800000023000000230000000100
-        2000000000002413000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        00000000000000000000020202040808080D0D0D0D151212121D1A1A1A281B1B
-        1B2A212121342828283F2828283F2828283E2A2A2A4135353552383838573737
-        3755383939583A3A3A593A3A39593A3A3A59393A3A5938383856393A39593737
-        37552D2B2C44292A2A412828283F2828283E202020321A1A1A29191919271111
-        111C0C0C0C140707070C0202020300000000040404063434344F626262967373
-        73B17F7F7FC5898989D68D8D8DDC929292E4999999F09A9A9AF19B9B9BF29B9B
-        9BF3A0A0A0FBA2A2A2FEA2A3A3FFA49F9DF89A9D9EF5979CA0F6999D9EF5A29E
-        9BF5A2A4A2FFA39EA1F8989998EF85998CEB989496E79C9B9CF2999999EF9191
-        91E38D8D8DDC888888D47E7E7EC3717171AE5D5D5D902B2B2B42000000000101
-        01021313131F2828283F353535523E3E3E5F4646466C4E4E4E784E4E4E785859
-        5A89606060935F5F5F925F6060935D5D5D8F626263986E6966A1568098D2168D
-        D8FD118DD7FC148ED8FD4289B1E8655D5E92636C67A849A56EF22DB260FF5B93
-        71DB58545785575757864E4F4E784E4E4E78444444693D3D3D5E333333502727
-        273D1010101A0000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000000000000000000000010101010101
-        0102000000000D6EA5C3008CE5FE008CDDFB008DE2FE0080D5EA21413C64319F
-        5BDD28B667FE2FB268FA28B364FA2A5B40830000000000000000000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        00010000000100000001000000010000000100000000090C0D17115D89AA0F62
-        93B3090D0F1A00000000010101020B0F121E008CDDF60190DFFE008EE4FE008E
-        E6FE15A6AAFF24BC6DFF2ABC6EFF2EBA71FE2DBB70FE2DBA6FFD24BE6CFF245E
-        3F8E000000000101010200000001000000010000000100000001000000000000
-        0000000000000000000000000000000000000000000000010101000000001326
-        30470283CDE20093E8FF0093E8FF0184CFE312273248000000001833415E0095
-        EAFF008EE4FB0394DDFE1CB395FF2CC36CFF2BBE74FD2BBE75FD25BE74FF25BE
-        74FF2ABF75FE2ABB74FA23C574FF256646950000000000000000000101010000
-        0000000000000000000000000000000000000000000000000000000000000000
-        000000000000030404070086D0E70094E6FF0191DEF90191E0FA0094E5FF0095
-        EAFD153F5572116693B40090EEFE099DCAFC22BF84FF29C773FF26C37CFE26C3
-        7AFE22C378FF3CCE7FFE3ECF7FFE23C378FF27C47AFE28BE77F921C879FF266E
-        4C9D000000000000000000010001000000000000000000000000000000000000
-        000000000000000000000000000001000001000001010F6998B70095E6FC0094
-        E2FC0097E7FF0096E4FD0197E5FF0098ECFF0094EDFF0FAABEFF23C97BFF26CA
-        7BFE24C981FF21C87FFF22C97CFF45D68AFF30BDB9FF2EBBBBFF41D487FE1FC7
-        7CFF24C87FFE25C47DFA1FCD7DFF1E7C52A50102010300000000000101010000
-        0000000000000000000000000000000000000000000000010101010202030000
-        00001633425D009AEFFF0196E1FB0099E8FF0099E8FF0098E6FE0297E2FC0093
-        EAFD20B9B7FF38D683FE1BC983FF1DCB82FF28D082FF47D896FF1FB2C9FF0093
-        EBFF0092ECFF26B6C2FE41D88CFE1DCA80FE21CB82FE22C780FA1DD083FF1B88
-        59AE020303050000000000010101000000000000000000000000000000000000
-        000000000000000000000000000007090A110190D9ED009BE9FF0099E6FD009B
-        E9FF009BE9FF009AE7FE009AE9FF0197EAFE33C5B6FE36D885FE31D687FE44D4
-        A3FE10A7D8FF0094ECFE019CE7FF019CE7FF0095ECFF22B7C8FF41DB91FF1CCE
-        85FF1FCF87FF21CA83FA1CD286FF1B8E5EB30404040800000000010101020000
-        000000000000000000000000000008090A120506070C0405060A01010102096A
-        99B1009EEDFF009AE5FB009CE9FE009CE9FE009CE9FE009BE6FC0095E5FC0097
-        E8FF2AC8B7FF2DC8B2FF009ADFFD0096EAFC029EE7FE009CE9FE009CE9FE019D
-        E8FE0097EEFF1FB4C9FB3FDA91FA1BD187FE1CD18AFE1FCD87F91AD58AFF1A96
-        64BB0607070D000000000000000001000001000101010C6895AD0092D9EA008C
-        D0E2008CD0E10089CADB0096DFF2009EEBFE009EEAFE009FEBFF009FECFF009A
-        E5FB009EEEFF1CB1F6FF38AFE7F13FA2D1E635ADE6F01DB0F9FF009FECFF009A
-        E5FB009EEBFE009FECFF009EEAFE009FEAFF0097ECFC1BB3CCFB3FDE98FE1AD4
-        8AFE1BD48DFE1DCF8AF918D98EFF1B9D6AC30B0F0E1B02020204000000000F18
-        1B2C00A3F5FF00A0ECFF00A1EDFF00A1EEFF00A1EEFF00A1EDFF00A1EDFF00A0
-        EDFF00A0ECFE009BE6FB0CA8F3FF4691B3C529363B520D0E0E18040404080C0D
-        0D162833374D478EADBE0FAAF4FF009BE6FB00A0ECFE00A0EDFF00A1ECFF01A1
-        EBFF009BF1FF18B5D5FF40E09DFF1AD68DFE19D791FF18D08BFA20DE95FF1792
-        62A80404040800000000194A618001A1EFFB019EE6F900A2ECFD00A2ECFD00A2
-        ECFD00A2EDFE00A2EDFE00A2EDFE009EE9FC08A8F3FF3B6E8494010101010000
-        000000000000000000000000000000000000000000003B5F6F870BABF6FF009E
-        E8FC00A2EDFE00A2EDFE00A2EDFE01A3EBFE009CF1FE16B4D7FE3FE0A0FF1AD4
-        8BF921E095FF39A97CC80A0D0C1703030407000000000F668DA500A7F8FF029F
-        E5F900A4EDFD00A5EFFF00A4EEFE00A4EEFE00A5EFFF00A1EAFB00A4F1FF3385
-        AABC000000000000000102020204000101010101010100010101020202040101
-        010200000000357C9AAE00A5F2FF00A1EAFB00A5EFFF00A5EFFF00A4EEFE01A6
-        EDFF009FF2FE13AFD4F93EE2A8FF37BB92DD080A091200000000010101020100
-        00010A0E101B0E6D99AD00A9F8FF00A6EFFF00A5EFFE00A7F1FF00A6EFFE00A6
-        F0FE00A3ECFD07ADF6FC18212537000000000101010200000000000000000000
-        00000000000000000000010101020100000113181B290BACF3F900A3ECFD00A6
-        F0FE00A6EFFE00A7F1FF00A6F0FE01A6ECFD00A5F9FF078DB8D0121B1D310000
-        00000202020400000000000000000000000000000000153E506800A0E8F100A8
-        F1FF00A7EFFD00A9F2FF00A6EEFC00A7F2FF1A93C8DA01010102000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        00001C89B8CD00A8F4FF01A6EEFC00A9F2FF00A7F0FE00A6EDFC00A9F5FD135B
-        7B92040505090000000000010101000000000000000000000000000101010203
-        0305000000000B13162201A0E6EE01A8EFFD00A9F0FD01A6EDFB00AAF5FE177A
-        A4BC000000000000000000000000000000000000000000000000000000000000
-        000000000000000000000100000111729BB000AAF6FE00A6EDFB00A9F2FE01A6
-        ECFB00ACF9FF1436455B00000000020101030102020300000000000000000000
-        00000000000001000001000000000B0E101B1364869E01A9EFF900ABF1FD00AB
-        F3FE00A9F0FC00ADF7FF0B83B4C9000000000000000000000000000000000000
-        00000000000000000000000000000000000000000000000000000D7AA6BC00AD
-        F8FF01A8EFFB00ABF3FE00AAF0FC00ACF3FD0E7EADC0121F2538000000000000
-        00000000000000000000000000000000000100000000142E394F009ADBE200B0
-        FBFF00ADF3FE00AEF5FF00AEF5FF00ADF3FD00ADF3FE00A6EBF2090C0D160100
-        0001000101010000000000000000000000000000000000000000000000000100
-        00010607080E039FDFEA00ADF5FE00ADF3FD00AEF5FF00AEF5FF00ADF2FD00AF
-        F9FF00ADF6F9144A607701010102010000010000000003030306000000001349
-        5F7500B4FFFF00AFF5FF01ACF1FB00B0F6FF00AFF5FE00AFF5FE00B0F6FF01AC
-        F0FB00B3FDFF144E667D00000000020202040000000000000000000000000000
-        00000000000002020204000000001743556F00B3FEFF01ACF0FB00B0F6FF00AF
-        F5FE00AFF5FE00B0F6FF00AEF3FC01ADF1FD00B4FFFF1464849C000000000303
-        030604040408000000001F6C8AA306B5F9FC02ACEEF801B3F8FF01B2F7FE01B2
-        F7FE00B2F8FF00B1F7FE00B1F5FD00AFF3FC00AEF4F60F273040000000000000
-        00000102020301020203010202030000000000000000121D223400A9EDF100B0
-        F4FC00B1F5FD00B1F7FE00B2F8FF01B2F7FE01B2F7FE01B3F8FF01AEF1FA07B3
-        F6FB1B799EB100000000030404070303030600000000192C334A1ABFFDFF00AA
-        EDF800AEF1FA00AEF2FB00ADF2FB00B2F6FD00B3F8FE00B4F9FF00B3F6FD01B2
-        F6FE00AFF4F4163F50670304040700000000000000000000000002030305153A
-        485E00A9EAEE00B4F9FF00B3F6FD00B4F9FF00B3F8FE00B3F8FE00AEF3FB00AE
-        F2FB00AEF2FB00A9ECF716BFFEFF1A353F560000000002030305000101010000
-        00000506070C27B5EAEA39CBFFFF2CC7FFFF2FC8FFFF35CAFFFF16BCFBFF00B5
-        F9FF00B6F9FF00B6FAFF00B5F8FD00B6F9FF00B9FFFF039BD4DB1269899E1D54
-        68871367869B0896CBD700BAFFFF00B6FAFF00B5F7FD00B6FAFF00B6F9FF00B4
-        F9FE0AB8F9FF32C8FFFF31C9FFFF2CC7FFFF39CBFFFF2CBDF3F3080A0B130000
-        00000000010100000000000001010000000011212637294550692B3F475F263C
-        445A23353C50208EB7C300B6FCFE01B5F7FC00B7FAFE00B8FBFF00B7FAFE01B5
-        F6FC00B8FCFF00BBFFFF00BCFFFF00BBFFFF00B9FDFF01B5F6FC00B7FAFE00B8
-        FBFF00B7FAFE00B7F8FD00B6FBFF11ACE4E9233A4356253840562A3F465E2A45
-        4E6713242A3C0000000000000101000000000000000000000000000000000000
-        0000000000000000000000000000000000000292C4CD00BBFDFF00B7F8FC00BA
-        FCFF00B9FBFE00B9FBFE00B9FBFE00B8F9FC01B5F6FA02B5F5FA01B5F6FA00B7
-        F8FC00B9FBFE00B9FBFE00B9FBFE00BAFCFF00B9FBFE01B8FAFE00B4F3F4070C
-        0D15000000000000000000000000000000000000000000000000000000000000
-        000000000000000000000101010201020203020303050201010312252B3E00C0
-        FFFF01B9F9FD00BAFCFE00BAFCFE01BBFCFE00B9F9FC00BAFBFD00BCFDFF00BA
-        FCFE00BBFDFF00BAFCFE00BCFDFF00BAFCFE00B7F8FB01BBFCFE00BBFCFE00BB
-        FDFF01B6F6FA00C0FFFF1552677C010101020303030601020203010101020000
-        0000000000000000000000000000000000000000000000000000000000000101
-        01020000000013607B9000BFFDFE01B9F8FB00BDFEFF01BEFEFF00B9FAFC06BF
-        FFFF03BFFFFF00BCFEFF00BDFEFF00BDFEFF00BDFEFF00BDFEFF00BDFFFF09C1
-        FFFF00B9FAFC00BCFDFE00BDFEFF00BAFAFC00BDFDFE0692C1CB010202030000
-        0000000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000030303061FB1E3E706BDFBFD00B9FBFC00BC
-        FDFE00B8FAFC1DC7FFFF4EA6C7D036ADD6E100BCFEFE00BCFBFD00BDFEFE00BC
-        FDFE00BCFFFF21BBEFF44E9BB8C42DCBFFFF00BBFDFF00BBFCFD00BBFCFD03BA
-        F9FC20CAFFFF10181A2A00000000000101010000000000000000000000000000
-        0000000000000000000000000000000000000000000001000001010101021F6F
-        8B9C42D2FFFF1AC0FBFE0ABCFBFE32CEFFFF3A7E96A5040404082253657B01C2
-        FDFE00B8F7FA00BDFEFF00BAF9FB00BEFDFE258BAEBE000000002F5361783FD0
-        FDFD10C0FDFF18BFFBFE42D2FFFF257B99AA0506060C00000000000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        00000000000000000000000000001B4452673FC6F4F44BCEFAFA284B566C0000
-        0000000000001622273909C2FDFD00BAFBFD01BDFCFE00B8F7FA00C1FDFE214E
-        5F7500000000000000001B292F4245B4DCE042C9F6F71E4B5A70000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000000000000000000000000000000D16
-        18260E191D2B000000000100000100000000020303052DACD9E002BEFEFF00BB
-        FCFD00BAFCFE23C9FFFF131B1E2E000000000203030500000000080B0B140E14
-        1625000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        0000000000000102020300000000000000000102020300000000010101020000
-        000027677E9149CFFBFC49C7F5FA4CCCFAFD309AC1C902020204000000000000
-        0000010202030000000000000000010202030000000000000000000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000000000000002020204020202040000
-        0000000000000001010100000000090F121B1B728DA430809CB8227994AC0D24
-        2B3A000000000001010100000000000000000101010202020204000000000000
-        000000000000000000000000000000000000000000000000000000000000}
     end
     object btnExcelExport: TdxBarLargeButton
       Caption = #3626#3656#3591#3629#3629#3585' Excel'
@@ -775,21 +701,6 @@ object frmPopAll0123: TfrmPopAll0123
         0000000000000000000000000000000000000000000000000000000000000000
         000000000000000000000000000000000000000000000000000000000000}
     end
-    object cxBarEditItem1: TcxBarEditItem
-      Caption = 'New Item'
-      Category = 0
-      Hint = 'New Item'
-      Visible = ivAlways
-      PropertiesClassName = 'TcxDateEditProperties'
-      Properties.DateButtons = [btnToday]
-    end
-    object cxBarEditItem2: TcxBarEditItem
-      Caption = 'New Item'
-      Category = 0
-      Hint = 'New Item'
-      Visible = ivAlways
-      PropertiesClassName = 'TcxDateEditProperties'
-    end
   end
   object dxBarApplicationMenu1: TdxBarApplicationMenu
     BarManager = dxBarManager1
@@ -800,34 +711,140 @@ object frmPopAll0123: TfrmPopAll0123
     Left = 536
     Top = 8
   end
-  object MyQuery1: TMyQuery
+  object Qepi05list: TMyQuery
     Connection = dmu.MyConnection1
     SQL.Strings = (
-      'SELECT v.villno,v.villname'
-      ',COUNT(*) as Total'
-      ',COUNT(CASE WHEN p.sex=1 THEN 1 END) as M'
-      ',COUNT(CASE WHEN p.sex=2 THEN 1 END) as F'
+      'SELECT p.pid as  PID'
+      ',concat(c.titlename,p.fname,"   ",p.lname) as "'#3594#3639#3656#3629' - '#3626#3585#3640#3621'"'
+      
+        ',concat(DATE_FORMAT(p.birth,"%d-%m"),"-",DATE_FORMAT(p.birth,"%Y' +
+        '")+543) as "'#3623#3633#3609#3648#3585#3636#3604'"'
+      ',TIMESTAMPDIFF(YEAR,p.birth,CURDATE()) as "'#3629#3634#3618#3640' ('#3611#3637')"'
+      ',h.hno'
+      ',v.villno'
+      ',v.villname'
+      
+        ',max(case when cd.files18epi='#39'010'#39'then concat(DATE_FORMAT(ve.dat' +
+        'eepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else "" end' +
+        ')as BCG'
+      
+        ',max(case when cd.files18epi in ('#39'041'#39')then concat(DATE_FORMAT(v' +
+        'e.dateepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else "' +
+        '" end)as HBV1'
+      
+        ',max(case when cd.files18epi in ('#39'042'#39')then concat(DATE_FORMAT(v' +
+        'e.dateepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else "' +
+        '" end)as HBV2'
+      
+        ',max(case when cd.files18epi in ('#39'043'#39')then concat(DATE_FORMAT(v' +
+        'e.dateepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else "' +
+        '" end)as HBV3'
+      
+        ',max(case when cd.files18epi in ('#39'091'#39')then concat(DATE_FORMAT(v' +
+        'e.dateepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else "' +
+        '" end)as DHB1'
+      
+        ',max(case when cd.files18epi in('#39'092'#39')then concat(DATE_FORMAT(ve' +
+        '.dateepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else ""' +
+        ' end)as DHB2'
+      
+        ',max(case when cd.files18epi in('#39'093'#39')then concat(DATE_FORMAT(ve' +
+        '.dateepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else ""' +
+        ' end)as DHB3'
+      
+        ',max(case when cd.files18epi in('#39'031'#39')then concat(DATE_FORMAT(ve' +
+        '.dateepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else ""' +
+        ' end)as DTP1'
+      
+        ',max(case when cd.files18epi in('#39'032'#39')then concat(DATE_FORMAT(ve' +
+        '.dateepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else ""' +
+        ' end)as DTP2'
+      
+        ',max(case when cd.files18epi in('#39'033'#39')then concat(DATE_FORMAT(ve' +
+        '.dateepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else ""' +
+        ' end)as DTP3'
+      
+        ',max(case when cd.files18epi='#39'034'#39'then concat(DATE_FORMAT(ve.dat' +
+        'eepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else "" end' +
+        ')as DTP4'
+      
+        ',max(case when cd.files18epi='#39'035'#39'then concat(DATE_FORMAT(ve.dat' +
+        'eepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else "" end' +
+        ')as DTP5'
+      
+        ',max(case when cd.files18epi='#39'081'#39'then concat(DATE_FORMAT(ve.dat' +
+        'eepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else "" end' +
+        ')as OPV1'
+      
+        ',max(case when cd.files18epi='#39'082'#39'then concat(DATE_FORMAT(ve.dat' +
+        'eepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else "" end' +
+        ')as OPV2'
+      
+        ',max(case when cd.files18epi='#39'083'#39'then concat(DATE_FORMAT(ve.dat' +
+        'eepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else "" end' +
+        ')as OPV3'
+      
+        ',max(case when cd.files18epi='#39'084'#39'then concat(DATE_FORMAT(ve.dat' +
+        'eepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else "" end' +
+        ')as OPV4'
+      
+        ',max(case when cd.files18epi='#39'085'#39'then concat(DATE_FORMAT(ve.dat' +
+        'eepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else "" end' +
+        ')as OPV5'
+      
+        ',max(case when cd.files18epi='#39'061'#39'then concat(DATE_FORMAT(ve.dat' +
+        'eepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else "" end' +
+        ')as MMR'
+      
+        ',max(case when cd.files18epi='#39'051'#39'then concat(DATE_FORMAT(ve.dat' +
+        'eepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else "" end' +
+        ')as JE1'
+      
+        ',max(case when cd.files18epi='#39'052'#39'then concat(DATE_FORMAT(ve.dat' +
+        'eepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else "" end' +
+        ')as JE2'
+      
+        ',max(case when cd.files18epi='#39'053'#39'then concat(DATE_FORMAT(ve.dat' +
+        'eepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else "" end' +
+        ')as JE3'
+      
+        ',max(case when cd.files18epi='#39'J11'#39'then concat(DATE_FORMAT(ve.dat' +
+        'eepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else "" end' +
+        ')as LJE1'
+      
+        ',max(case when cd.files18epi='#39'J12'#39'then concat(DATE_FORMAT(ve.dat' +
+        'eepi,"%d-%m"),"-",DATE_FORMAT(ve.dateepi,"%Y")+543)  else "" end' +
+        ')as LJE2'
+      ''
+      ''
       ''
       'FROM person as p'
-      ''
+      'INNER JOIN ctitle as c on p.prename=c.titlecode'
       
-        'INNER JOIN house as h on p.pcucodeperson=h.pcucode AND p.hcode=h' +
-        '.hcode'
-      'INNER JOIN village as v on h.villcode=v.villcode'
+        'LEFT OUTER JOIN house as h on p.pcucodeperson=h.pcucode AND p.hc' +
+        'ode=h.hcode'
+      'LEFT OUTER JOIN village as v on h.villcode=v.villcode'
+      
+        'LEFT OUTER JOIN visitepi as ve on p.pid=ve.pid AND p.pcucodepers' +
+        'on=ve.pcucodeperson'
+      'LEFT JOIN cdrug as cd on ve.vaccinecode=cd.drugcode'
       ''
-      'WHERE p.typelive in (0,1,2,3)'
+      ''
+      'WHERE '
+      'TIMESTAMPDIFF(year,p.birth,CURDATE())<=5'
+      'AND p.typelive in (0,1,3)'
       'AND p.dischargetype=9'
-      'AND p.nation=99'
+      'AND substring(v.villcode,7,2)!=0'
       ''
-      ''
-      'GROUP BY v.villcode')
+      'GROUP BY CONCAT(p.pcucodeperson,p.pid)'
+      'ORDER BY v.villno,TIMESTAMPDIFF(YEAR,p.birth,CURDATE()),p.fname')
     Active = True
-    Left = 438
-    Top = 24
+    Left = 444
+    Top = 27
   end
   object MyDataSource1: TMyDataSource
-    DataSet = MyQuery1
-    Left = 369
-    Top = 27
+    DataSet = Qepi05list
+    Left = 390
+    Top = 51
   end
 end
